@@ -71,7 +71,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Best Pediatrician in Rawalpindi | Dr. Shahid Mahmud" },
       { property: "og:description", content: "Expert pediatric, neonatal and child neurology care in Rawalpindi." },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#3b82f6" },
+      { name: "theme-color", content: "#e85d3a" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
