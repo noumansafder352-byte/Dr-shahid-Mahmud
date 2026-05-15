@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, Calendar, MessageCircle, Award, Heart, Stethoscope, Brain, Syringe, Baby, Activity, Apple, ShieldCheck, Sparkles, Star, ArrowRight, CheckCircle2 } from "lucide-react";
-import doctorHero from "@/assets/doctor-hero.jpg";
+import doctorHero from "@/assets/dr-shahid-portrait.png";
 import careIllu from "@/assets/care-illustration.jpg";
 import { SITE, waLink } from "@/lib/site";
 import { Counter } from "@/components/site/Counter";

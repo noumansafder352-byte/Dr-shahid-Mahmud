@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, Clock } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
+import logo from "@/assets/clinic-logo.png";
 
 export function Footer() {
   return (
@@ -8,9 +9,7 @@ export function Footer() {
       <div className="container mx-auto grid gap-10 px-4 py-14 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex items-center gap-3">
-            <div className="grid h-11 w-11 place-items-center rounded-xl gradient-primary font-bold text-primary-foreground">
-              DS
-            </div>
+            <img src={logo} alt="Dr Shahid's Child & Neuro Clinic" width={48} height={48} className="h-12 w-12 rounded-full object-contain bg-white" />
             <div>
               <div className="font-display font-bold">{SITE.short}</div>
               <div className="text-xs text-muted-foreground">{SITE.qualification}</div>
