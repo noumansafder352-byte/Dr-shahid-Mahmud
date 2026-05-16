@@ -25,17 +25,17 @@ export function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Dr Shahid's Child & Neuro Clinic logo" width={48} height={48} className="h-12 w-12 rounded-full object-contain bg-white shadow-soft" />
+          <img src={logo} alt="Dr Shahid's Child & Neuro Clinic logo" width={64} height={64} className="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-contain bg-white shadow-soft" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-5">
           {NAV.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               activeOptions={{ exact: n.to === "/" }}
               activeProps={{ className: "text-primary bg-secondary" }}
-              className="rounded-full px-4 py-2 text-sm font-medium text-foreground/75 hover:text-primary hover:bg-secondary transition-smooth"
+              className="rounded-full px-5 py-2.5 text-base font-medium text-foreground/80 hover:text-primary hover:bg-secondary transition-smooth"
             >
               {n.label}
             </Link>
