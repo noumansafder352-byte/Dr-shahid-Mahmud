@@ -9,22 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as VaccinationRouteImport } from './routes/vaccination'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ChildNeurologyRouteImport } from './routes/child-neurology'
-import { Route as ChildDevelopmentRouteImport } from './routes/child-development'
-import { Route as BlogRouteImport } from './routes/blog'
-import { Route as AppointmentRouteImport } from './routes/appointment'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
-const VaccinationRoute = VaccinationRouteImport.update({
-  id: '/vaccination',
-  path: '/vaccination',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -38,26 +28,6 @@ const ServicesRoute = ServicesRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ChildNeurologyRoute = ChildNeurologyRouteImport.update({
-  id: '/child-neurology',
-  path: '/child-neurology',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ChildDevelopmentRoute = ChildDevelopmentRouteImport.update({
-  id: '/child-development',
-  path: '/child-development',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppointmentRoute = AppointmentRouteImport.update({
-  id: '/appointment',
-  path: '/appointment',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -74,101 +44,43 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/appointment': typeof AppointmentRoute
-  '/blog': typeof BlogRoute
-  '/child-development': typeof ChildDevelopmentRoute
-  '/child-neurology': typeof ChildNeurologyRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/vaccination': typeof VaccinationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/appointment': typeof AppointmentRoute
-  '/blog': typeof BlogRoute
-  '/child-development': typeof ChildDevelopmentRoute
-  '/child-neurology': typeof ChildNeurologyRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/vaccination': typeof VaccinationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/appointment': typeof AppointmentRoute
-  '/blog': typeof BlogRoute
-  '/child-development': typeof ChildDevelopmentRoute
-  '/child-neurology': typeof ChildNeurologyRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/vaccination': typeof VaccinationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/appointment'
-    | '/blog'
-    | '/child-development'
-    | '/child-neurology'
-    | '/contact'
-    | '/services'
-    | '/sitemap.xml'
-    | '/vaccination'
+  fullPaths: '/' | '/about' | '/contact' | '/services' | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/appointment'
-    | '/blog'
-    | '/child-development'
-    | '/child-neurology'
-    | '/contact'
-    | '/services'
-    | '/sitemap.xml'
-    | '/vaccination'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/appointment'
-    | '/blog'
-    | '/child-development'
-    | '/child-neurology'
-    | '/contact'
-    | '/services'
-    | '/sitemap.xml'
-    | '/vaccination'
+  to: '/' | '/about' | '/contact' | '/services' | '/sitemap.xml'
+  id: '__root__' | '/' | '/about' | '/contact' | '/services' | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AppointmentRoute: typeof AppointmentRoute
-  BlogRoute: typeof BlogRoute
-  ChildDevelopmentRoute: typeof ChildDevelopmentRoute
-  ChildNeurologyRoute: typeof ChildNeurologyRoute
   ContactRoute: typeof ContactRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  VaccinationRoute: typeof VaccinationRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/vaccination': {
-      id: '/vaccination'
-      path: '/vaccination'
-      fullPath: '/vaccination'
-      preLoaderRoute: typeof VaccinationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -188,34 +100,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/child-neurology': {
-      id: '/child-neurology'
-      path: '/child-neurology'
-      fullPath: '/child-neurology'
-      preLoaderRoute: typeof ChildNeurologyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/child-development': {
-      id: '/child-development'
-      path: '/child-development'
-      fullPath: '/child-development'
-      preLoaderRoute: typeof ChildDevelopmentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/appointment': {
-      id: '/appointment'
-      path: '/appointment'
-      fullPath: '/appointment'
-      preLoaderRoute: typeof AppointmentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -238,14 +122,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AppointmentRoute: AppointmentRoute,
-  BlogRoute: BlogRoute,
-  ChildDevelopmentRoute: ChildDevelopmentRoute,
-  ChildNeurologyRoute: ChildNeurologyRoute,
   ContactRoute: ContactRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  VaccinationRoute: VaccinationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
