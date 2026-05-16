@@ -65,18 +65,60 @@ function About() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-12 lg:px-8">
-        <SectionHeading center eyebrow="Qualifications" title="Distinguished credentials & training" />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {quals.map((q, i) => (
-            <div key={i} className="rounded-2xl border border-border bg-card p-6 shadow-soft text-center transition-smooth hover:-translate-y-1 hover:shadow-elegant">
-              <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl gradient-primary text-primary-foreground">
-                <q.icon className="h-6 w-6" />
-              </div>
-              <h3 className="mt-4 font-display font-semibold">{q.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{q.desc}</p>
+      <section className="relative overflow-hidden py-20">
+        <div className="absolute inset-0 -z-10 gradient-soft opacity-60" />
+        <div className="container mx-auto px-4 lg:px-8">
+          <SectionHeading center eyebrow="Qualifications & Credentials" title="Distinguished medical training & service" subtitle="A career rooted in academic excellence, military medical leadership and specialized pediatric expertise." />
+
+          <div className="relative mx-auto mt-16 max-w-5xl">
+            <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-primary/40 to-transparent lg:block" />
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-x-16">
+              {quals.map((q, i) => (
+                <div
+                  key={i}
+                  className={`group relative rounded-3xl border border-border bg-card/90 p-7 shadow-soft backdrop-blur transition-smooth hover:-translate-y-1 hover:shadow-elegant ${
+                    i % 2 === 1 ? "lg:mt-16" : ""
+                  }`}
+                >
+                  <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+                  <div className="flex items-start gap-5">
+                    <div className="relative shrink-0">
+                      <div className="absolute inset-0 rounded-2xl gradient-primary opacity-30 blur-md transition-smooth group-hover:opacity-60" />
+                      <div className="relative grid h-16 w-16 place-items-center rounded-2xl gradient-primary text-primary-foreground shadow-soft">
+                        <q.icon className="h-7 w-7" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary/80">
+                          Credential 0{i + 1}
+                        </span>
+                        <span className="h-px flex-1 bg-border" />
+                      </div>
+                      <h3 className="mt-2 font-display text-xl font-bold tracking-tight">{q.title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{q.desc}</p>
+                      <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-[11px] font-semibold text-primary">
+                        <CheckCircle2 className="h-3.5 w-3.5" /> Verified
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          <div className="mt-14 grid gap-5 sm:grid-cols-3">
+            {[
+              { k: "30+", v: "Years of Practice" },
+              { k: "10,000+", v: "Children Treated" },
+              { k: "Brig (R)", v: "Pakistan Army Medical Corps" },
+            ].map((s) => (
+              <div key={s.v} className="rounded-2xl border border-border bg-card p-6 text-center shadow-soft">
+                <div className="font-display text-3xl font-bold text-gradient">{s.k}</div>
+                <p className="mt-1 text-sm text-muted-foreground">{s.v}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

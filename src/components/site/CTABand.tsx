@@ -1,5 +1,4 @@
-import { Link } from "@tanstack/react-router";
-import { Phone, Calendar, MessageCircle } from "lucide-react";
+import { Phone, MessageCircle } from "lucide-react";
 import { SITE, waLink } from "@/lib/site";
 
 export function CTABand() {
@@ -16,14 +15,11 @@ export function CTABand() {
             Compassionate, expert pediatric care for your child — book an appointment or speak with us instantly.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <Link to="/appointment" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary shadow-soft hover:shadow-elegant transition-smooth">
-              <Calendar className="h-4 w-4" /> Book Appointment
-            </Link>
+            <a href={waLink()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary shadow-soft hover:shadow-elegant transition-smooth">
+              <MessageCircle className="h-4 w-4" /> Book Consultation
+            </a>
             <a href={`tel:${SITE.phoneIntl}`} className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur px-6 py-3 text-sm font-semibold text-white border border-white/30 hover:bg-white/25 transition-smooth">
               <Phone className="h-4 w-4" /> Call {SITE.phone}
-            </a>
-            <a href={waLink()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur px-6 py-3 text-sm font-semibold text-white border border-white/30 hover:bg-white/25 transition-smooth">
-              <MessageCircle className="h-4 w-4" /> Online Consultation
             </a>
           </div>
         </div>

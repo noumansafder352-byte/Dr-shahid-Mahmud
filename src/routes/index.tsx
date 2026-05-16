@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Phone, Calendar, MessageCircle, Award, Heart, Stethoscope, Brain, Syringe, Baby, Activity, Apple, ShieldCheck, Sparkles, Star, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Phone, MessageCircle, Award, Heart, Stethoscope, Brain, Syringe, Baby, Activity, Apple, ShieldCheck, Sparkles, Star, ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 import doctorHero from "@/assets/dr-shahid-portrait.png";
-import careIllu from "@/assets/care-illustration.jpg";
+import careIllu from "@/assets/pediatric-care.jpg";
 import { SITE, waLink } from "@/lib/site";
 import { Counter } from "@/components/site/Counter";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -65,14 +65,11 @@ function Home() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/appointment" className="inline-flex items-center gap-2 rounded-full gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition-smooth">
-                <Calendar className="h-4 w-4" /> Book Appointment
-              </Link>
+              <a href={waLink()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition-smooth">
+                <MessageCircle className="h-4 w-4" /> Book Consultation
+              </a>
               <a href={`tel:${SITE.phoneIntl}`} className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-smooth">
                 <Phone className="h-4 w-4" /> Call Now
-              </a>
-              <a href={waLink()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition-smooth hover:shadow-elegant" style={{ background: "var(--whatsapp)" }}>
-                <MessageCircle className="h-4 w-4" /> WhatsApp
               </a>
             </div>
 
@@ -229,6 +226,34 @@ function Home() {
       </section>
 
       <CTABand />
+
+      {/* MAP */}
+      <section className="container mx-auto px-4 pb-16 lg:px-8">
+        <SectionHeading center eyebrow="Visit Clinic" title="Find us at Nelson Medical Complex" subtitle="Abid Majeed Road, Rawalpindi, Pakistan — easy to reach, comfortable to visit." />
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="lg:col-span-2 overflow-hidden rounded-3xl border border-border shadow-elegant">
+            <iframe
+              src="https://www.google.com/maps?q=Nelson+Medical+Complex+Abid+Majeed+Road+Rawalpindi&output=embed"
+              width="100%" height="420" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Nelson Medical Complex, Rawalpindi"
+            />
+          </div>
+          <div className="rounded-3xl glass p-7 shadow-soft flex flex-col gap-5">
+            <div>
+              <div className="grid h-12 w-12 place-items-center rounded-2xl gradient-primary text-primary-foreground"><MapPin className="h-5 w-5" /></div>
+              <h3 className="mt-4 font-display text-lg font-semibold">Clinic Address</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{SITE.address}</p>
+            </div>
+            <div>
+              <h4 className="font-display text-sm font-semibold">Clinic Hours</h4>
+              <p className="mt-1 text-sm text-muted-foreground">{SITE.hours}</p>
+              <p className="text-sm text-muted-foreground">Sunday: Closed</p>
+            </div>
+            <a href={waLink()} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center justify-center gap-2 rounded-full gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition-smooth">
+              <MessageCircle className="h-4 w-4" /> Book Consultation
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
