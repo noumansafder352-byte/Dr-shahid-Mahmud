@@ -1,9 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
-import { NAV, SITE } from "@/lib/site";
+import { NAV, waLink } from "@/lib/site";
 import logo from "@/assets/clinic-logo.png";
-import { waLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
