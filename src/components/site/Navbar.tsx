@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone, Calendar } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import logo from "@/assets/clinic-logo.png";
+import { waLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -26,10 +27,6 @@ export function Navbar() {
       <div className="container mx-auto flex items-center justify-between px-4 py-3 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="Dr Shahid's Child & Neuro Clinic logo" width={48} height={48} className="h-12 w-12 rounded-full object-contain bg-white shadow-soft" />
-          <div className="hidden sm:block leading-tight">
-            <div className="font-display text-base font-bold text-foreground">{SITE.short}</div>
-            <div className="text-[11px] text-muted-foreground">Child & Neuro Clinic</div>
-          </div>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -48,17 +45,13 @@ export function Navbar() {
 
         <div className="hidden lg:flex items-center gap-2">
           <a
-            href={`tel:${SITE.phoneIntl}`}
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary transition-smooth"
-          >
-            <Phone className="h-4 w-4" /> {SITE.phone}
-          </a>
-          <Link
-            to="/appointment"
+            href={waLink()}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition-smooth"
           >
-            <Calendar className="h-4 w-4" /> Book Appointment
-          </Link>
+            <MessageCircle className="h-4 w-4" /> Book Consultation
+          </a>
         </div>
 
         <button
@@ -85,13 +78,15 @@ export function Navbar() {
                 {n.label}
               </Link>
             ))}
-            <Link
-              to="/appointment"
+            <a
+              href={waLink()}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="mt-3 inline-flex items-center justify-center gap-2 rounded-full gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground"
             >
-              <Calendar className="h-4 w-4" /> Book Appointment
-            </Link>
+              <MessageCircle className="h-4 w-4" /> Book Consultation
+            </a>
           </div>
         </div>
       )}
