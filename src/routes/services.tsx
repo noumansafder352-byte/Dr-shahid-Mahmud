@@ -1,7 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Activity, Stethoscope, Syringe, Wind, Sparkles, Apple, Brain, Pill, Baby, Heart, ArrowRight, ShieldCheck } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Activity, Stethoscope, Syringe, Wind, Sparkles, Apple, Brain, Pill, Baby, Heart, ArrowRight, ShieldCheck, MessageCircle } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CTABand } from "@/components/site/CTABand";
+import { waLink } from "@/lib/site";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -47,9 +48,9 @@ function Services() {
                 </div>
                 <h3 className="mt-5 font-display text-lg font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                <Link to="/appointment" className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
-                  Book consultation <ArrowRight className="h-4 w-4" />
-                </Link>
+                <a href={waLink(`Hello Doctor, I'd like to book a consultation for: ${s.title}.`)} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                  <MessageCircle className="h-4 w-4" /> Book Consultation <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
           ))}

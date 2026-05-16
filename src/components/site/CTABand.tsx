@@ -23,7 +23,7 @@ export function CTABand() {
               <Phone className="h-4 w-4" /> Call {SITE.phone}
             </a>
             <a href={waLink()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur px-6 py-3 text-sm font-semibold text-white border border-white/30 hover:bg-white/25 transition-smooth">
-              <MessageCircle className="h-4 w-4" /> WhatsApp
+              <MessageCircle className="h-4 w-4" /> Online Consultation
             </a>
           </div>
         </div>

@@ -17,11 +17,7 @@ export const NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
-  { to: "/child-neurology", label: "Child Neurology" },
-  { to: "/vaccination", label: "Vaccination" },
-  { to: "/child-development", label: "Development" },
-  { to: "/blog", label: "Blog" },
-  { to: "/contact", label: "Contact" },
+  { to: "/contact", label: "Contact Us" },
 ] as const;
 
 export const waLink = (msg = "Hello Doctor, I would like to book an appointment for my child.") =>

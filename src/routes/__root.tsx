@@ -11,6 +11,7 @@ import appCss from "../styles.css?url";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FloatingActions } from "@/components/site/FloatingActions";
+import { PromoModal } from "@/components/site/PromoModal";
 import { SITE } from "@/lib/site";
 
 function NotFoundComponent() {
@@ -111,6 +112,7 @@ function RootComponent() {
         </main>
         <Footer />
         <FloatingActions />
+        <PromoModal />
       </div>
     </QueryClientProvider>
   );

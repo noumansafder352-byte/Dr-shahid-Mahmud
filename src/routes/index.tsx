@@ -120,8 +120,8 @@ function Home() {
           {[
             { n: 30, s: "+", l: "Years of Experience" },
             { n: 10000, s: "+", l: "Happy Patients" },
-            { n: 1, s: "", l: "Trusted Child Specialist" },
-            { n: 100, s: "%", l: "FCPS Pediatrics" },
+            { n: 24, s: "/7", l: "Online Consultation" },
+            { n: 100, s: "%", l: "Trusted Child Care Specialist" },
           ].map((c, i) => (
             <div key={i} className="text-center">
               <div className="font-display text-3xl font-bold text-gradient sm:text-5xl">
@@ -146,9 +146,6 @@ function Home() {
                 </div>
                 <h3 className="mt-5 font-display text-lg font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                <Link to="/services" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
-                  Learn more <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
             </div>
           ))}
