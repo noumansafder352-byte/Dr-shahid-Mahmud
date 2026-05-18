@@ -10,7 +10,8 @@ export const SITE = {
   clinic: "Nelson Medical Complex",
   address: "Nelson Medical Complex, Abid Majeed Road, Rawalpindi, Pakistan 46000",
   url: "https://drshahidmahmud.com",
-  hours: "Mon – Sat: 5:00 PM – 9:00 PM",
+  hours: "Mon – Sat: 11:00 AM – 6:00 PM",
+  experience: "35+ Years Experience",
 };
 
 export const NAV = [
