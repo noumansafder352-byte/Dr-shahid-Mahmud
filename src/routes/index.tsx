@@ -41,7 +41,7 @@ const services = [
 ];
 
 const why = [
-  { icon: Award, title: "30+ Years Experience", desc: "Decades of clinical excellence in pediatrics and neurology." },
+  { icon: Award, title: "35+ Years Experience", desc: "Decades of clinical excellence in pediatrics and neurology." },
   { icon: ShieldCheck, title: "Evidence-Based Care", desc: "Modern, internationally aligned protocols for every patient." },
   { icon: Heart, title: "Compassionate Approach", desc: "Family-centered consultations focused on parent confidence." },
   { icon: Brain, title: "Pediatric Neurology Expert", desc: "Specialized in seizures, epilepsy and developmental disorders." },
@@ -123,7 +123,7 @@ function Home() {
       <section className="container mx-auto px-4 py-12 lg:px-8">
         <div className="grid grid-cols-2 gap-4 rounded-3xl glass p-6 shadow-soft sm:p-10 lg:grid-cols-4">
           {[
-            { n: 30, s: "+", l: "Years of Experience" },
+            { n: 35, s: "+", l: "Years of Experience" },
             { n: 10000, s: "+", l: "Happy Patients" },
             { n: 24, s: "/7", l: "Online Consultation" },
             { n: 100, s: "%", l: "Trusted Child Care Specialist" },
