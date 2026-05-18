@@ -1,7 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Phone, MessageCircle, Award, Heart, Stethoscope, Brain, Syringe, Baby, Activity, Apple, ShieldCheck, Sparkles, Star, ArrowRight, CheckCircle2, MapPin } from "lucide-react";
+import { Phone, MessageCircle, Award, Heart, Brain, ShieldCheck, Sparkles, Star, ArrowRight, CheckCircle2, MapPin, Activity } from "lucide-react";
 import doctorHero from "@/assets/dr-shahid-portrait.png";
 import careIllu from "@/assets/pediatric-care.jpg";
+import svcCheckup from "@/assets/svc-checkup.jpg";
+import svcPneumonia from "@/assets/svc-pneumonia.jpg";
+import svcVaccine from "@/assets/svc-vaccine.jpg";
+import svcNeurology from "@/assets/svc-neurology.jpg";
+import svcNewborn from "@/assets/svc-newborn.jpg";
+import svcNutrition from "@/assets/svc-nutrition.jpg";
+import svcAsthma from "@/assets/svc-asthma.jpg";
+import svcDevelopment from "@/assets/svc-development.jpg";
 import { SITE, waLink } from "@/lib/site";
 import { Counter } from "@/components/site/Counter";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -22,14 +30,14 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Activity, title: "Frequent Fever & Cough", desc: "Accurate diagnosis and modern treatment for recurring fever, cough and flu in children." },
-  { icon: Stethoscope, title: "Pneumonia Treatment", desc: "Specialized care for pediatric pneumonia and chest infections of all severity." },
-  { icon: Syringe, title: "Vaccination Services", desc: "Complete EPI & international vaccination schedule with safety counselling." },
-  { icon: Brain, title: "Child Neurology", desc: "Seizures, epilepsy, developmental delay and pediatric neurological assessments." },
-  { icon: Baby, title: "Newborn & Neonatal Care", desc: "Expert care for newborns, premature babies and high-risk neonates." },
-  { icon: Apple, title: "Growth & Nutrition", desc: "Personalized growth, nutrition and feeding guidance for healthy development." },
-  { icon: Heart, title: "Asthma & Allergies", desc: "Comprehensive management of pediatric asthma, allergies and skin conditions." },
-  { icon: Sparkles, title: "Developmental Care", desc: "Mental, behavioral and developmental concerns evaluated with compassion." },
+  { img: svcCheckup, tag: "Pediatrics", title: "Frequent Fever & Cough", desc: "Modern treatment for recurring fever, cough and flu." },
+  { img: svcPneumonia, tag: "Pediatrics", title: "Pneumonia Treatment", desc: "Specialized care for chest infections of all severity." },
+  { img: svcVaccine, tag: "Preventive", title: "Vaccination Services", desc: "Complete EPI & international vaccination schedule." },
+  { img: svcNeurology, tag: "Neurology", title: "Child Neurology", desc: "Seizures, epilepsy & developmental neurological care." },
+  { img: svcNewborn, tag: "Neonatology", title: "Newborn & Neonatal Care", desc: "Expert care for newborns and high-risk neonates." },
+  { img: svcNutrition, tag: "Wellness", title: "Growth & Nutrition", desc: "Personalized nutrition for healthy development." },
+  { img: svcAsthma, tag: "Pediatrics", title: "Asthma & Allergies", desc: "Comprehensive management of asthma and allergies." },
+  { img: svcDevelopment, tag: "Development", title: "Developmental Care", desc: "Behavioral & developmental evaluations with compassion." },
 ];
 
 const why = [
@@ -133,16 +141,24 @@ function Home() {
       {/* SERVICES */}
       <section className="container mx-auto px-4 py-20 lg:px-8">
         <SectionHeading center eyebrow="Our Services" title="Complete pediatric care under one roof" subtitle="From newborn care to child neurology, we provide expert medical attention tailored to every stage of your child's growth." />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s, i) => (
-            <div key={i} className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-soft transition-smooth hover:-translate-y-1 hover:shadow-elegant">
-              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/5 transition-smooth group-hover:bg-primary/10" />
-              <div className="relative">
-                <div className="grid h-12 w-12 place-items-center rounded-xl gradient-primary text-primary-foreground shadow-soft">
-                  <s.icon className="h-6 w-6" />
-                </div>
-                <h3 className="mt-5 font-display text-lg font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+            <div key={i} className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-soft transition-smooth hover:-translate-y-1.5 hover:shadow-elegant">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img src={s.img} alt={s.title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
+                <span className="absolute left-4 top-4 rounded-full glass px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary shadow-soft">
+                  {s.tag}
+                </span>
+                <h3 className="absolute bottom-3 left-4 right-4 font-display text-lg font-semibold text-white drop-shadow">
+                  {s.title}
+                </h3>
+              </div>
+              <div className="p-5">
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                <a href={waLink(`Hello Doctor, I'd like to book a consultation for: ${s.title}.`)} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-all group-hover:gap-2.5">
+                  <MessageCircle className="h-4 w-4" /> Book Consultation <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
           ))}
