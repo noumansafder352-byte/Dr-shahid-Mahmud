@@ -31,19 +31,6 @@ const badges = [
   { icon: ShieldCheck, label: "Evidence-Based Child Care" },
 ];
 
-const credentials = [
-  { icon: GraduationCap, title: "MBBS", institute: "Bachelor of Medicine & Surgery", country: "Pakistan", tone: "primary" },
-  { icon: Award, title: "FCPS Pediatrics", institute: "College of Physicians & Surgeons", country: "Pakistan", tone: "teal" },
-  { icon: ShieldCheck, title: "MRCPCH", institute: "Royal College of Paediatrics & Child Health", country: "United Kingdom", tone: "primary" },
-  { icon: ShieldCheck, title: "MRCPI", institute: "Royal College of Physicians of Ireland", country: "Ireland", tone: "teal" },
-  { icon: ShieldCheck, title: "MRCPS", institute: "Royal College of Physicians & Surgeons", country: "Glasgow, UK", tone: "primary" },
-  { icon: Award, title: "FRCPCH", institute: "Fellow, Royal College of Paediatrics & Child Health", country: "United Kingdom", tone: "teal" },
-  { icon: Award, title: "FRCPI", institute: "Fellow, Royal College of Physicians of Ireland", country: "Ireland", tone: "primary" },
-  { icon: Award, title: "FRCP", institute: "Fellow, Royal College of Physicians & Surgeons", country: "Glasgow, UK", tone: "teal" },
-  { icon: Baby, title: "Fellowship in Neonatal Medicine", institute: "Advanced Neonatal Intensive Care Training", country: "United Kingdom", tone: "primary" },
-  { icon: Brain, title: "Fellowship in Pediatric Neurology", institute: "Guy’s & St Thomas’ Hospital, London", country: "United Kingdom", tone: "teal" },
-];
-
 const smallCreds = [
   { icon: GraduationCap, title: "MBBS", institute: "Bachelor of Medicine & Surgery", country: "Pakistan", tone: "primary" },
   { icon: Award, title: "FCPS Pediatrics", institute: "College of Physicians & Surgeons", country: "Pakistan", tone: "teal" },
