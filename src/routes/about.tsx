@@ -31,19 +31,17 @@ const badges = [
   { icon: ShieldCheck, label: "Evidence-Based Child Care" },
 ];
 
-const qualifications = [
-  { code: "MBBS", title: "MBBS", desc: "Bachelor of Medicine & Bachelor of Surgery" },
-  { code: "FCPS", title: "FCPS Pediatrics", desc: "Fellowship — College of Physicians & Surgeons Pakistan" },
-  { code: "MRCPCH", title: "MRCPCH (UK)", desc: "Member, Royal College of Paediatrics & Child Health" },
-  { code: "Neonatal", title: "Fellowship in Neonatal Medicine (UK)", desc: "Advanced training in newborn intensive care" },
-  { code: "Neurology", title: "Fellowship in Pediatric Neurology", desc: "Guy’s & St Thomas’ Hospital, London — UK" },
-  { code: "FRCPCH", title: "FRCPCH (UK)", desc: "Fellow, Royal College of Paediatrics & Child Health" },
-  { code: "FRCPI", title: "FRCPI (Ireland)", desc: "Fellow, Royal College of Physicians of Ireland" },
-];
-
-const education = [
-  { institution: "Quaid-e-Azam University", degree: "MBBS" },
-  { institution: "CPSP — College of Physicians & Surgeons Pakistan", degree: "FCPS Pediatrics" },
+const credentials = [
+  { icon: GraduationCap, title: "MBBS", institute: "Bachelor of Medicine & Surgery", country: "Pakistan", tone: "primary" },
+  { icon: Award, title: "FCPS Pediatrics", institute: "College of Physicians & Surgeons", country: "Pakistan", tone: "teal" },
+  { icon: ShieldCheck, title: "MRCPCH", institute: "Royal College of Paediatrics & Child Health", country: "United Kingdom", tone: "primary" },
+  { icon: ShieldCheck, title: "MRCPI", institute: "Royal College of Physicians of Ireland", country: "Ireland", tone: "teal" },
+  { icon: ShieldCheck, title: "MRCPS", institute: "Royal College of Physicians & Surgeons", country: "Glasgow, UK", tone: "primary" },
+  { icon: Award, title: "FRCPCH", institute: "Fellow, Royal College of Paediatrics & Child Health", country: "United Kingdom", tone: "teal" },
+  { icon: Award, title: "FRCPI", institute: "Fellow, Royal College of Physicians of Ireland", country: "Ireland", tone: "primary" },
+  { icon: Award, title: "FRCP", institute: "Fellow, Royal College of Physicians & Surgeons", country: "Glasgow, UK", tone: "teal" },
+  { icon: Baby, title: "Fellowship in Neonatal Medicine", institute: "Advanced Neonatal Intensive Care Training", country: "United Kingdom", tone: "primary" },
+  { icon: Brain, title: "Fellowship in Pediatric Neurology", institute: "Guy’s & St Thomas’ Hospital, London", country: "United Kingdom", tone: "teal" },
 ];
 
 const expertise = [
@@ -139,91 +137,86 @@ function About() {
         </div>
       </section>
 
-      {/* SECTION 2 — QUALIFICATIONS & EXPERIENCE */}
+      {/* SECTION 2 — PROFESSIONAL CREDENTIALS */}
       <section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 -z-10 gradient-soft opacity-60" />
-        <div className="container mx-auto px-4 lg:px-8">
-          <SectionHeading center eyebrow="Qualifications & Experience" title="International training. Pakistani roots." subtitle="A distinguished academic and clinical journey across Pakistan, the UK and Ireland — built on rigorous medical excellence." />
+        <div className="absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-primary/10 blur-3xl animate-blob" />
+        <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-teal/15 blur-3xl animate-blob" style={{ animationDelay: "2s" }} />
 
-          <div className="relative mx-auto mt-16 max-w-5xl">
-            <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-primary/40 to-transparent lg:block" />
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-x-16">
-              {qualifications.map((q, i) => (
+        {/* Floating medical icons */}
+        <Stethoscope className="pointer-events-none absolute left-6 top-24 h-8 w-8 text-primary/15 animate-float hidden md:block" />
+        <Brain className="pointer-events-none absolute right-10 top-40 h-10 w-10 text-teal/20 animate-float hidden md:block" style={{ animationDelay: "1.2s" }} />
+        <Baby className="pointer-events-none absolute left-12 bottom-32 h-9 w-9 text-primary/15 animate-float hidden md:block" style={{ animationDelay: "2.4s" }} />
+        <HeartPulse className="pointer-events-none absolute right-16 bottom-20 h-8 w-8 text-teal/20 animate-float hidden md:block" style={{ animationDelay: "0.6s" }} />
+
+        <div className="container relative mx-auto px-4 lg:px-8">
+          <SectionHeading
+            center
+            eyebrow="Credentials"
+            title="Professional Credentials & International Expertise"
+            subtitle="Internationally trained Pediatrician & Child Neurologist with advanced specialty qualifications from Pakistan, Ireland, Scotland, and the United Kingdom."
+          />
+
+          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-6">
+            {credentials.map((c, i) => {
+              const isTeal = c.tone === "teal";
+              return (
                 <div
                   key={i}
-                  className={`group relative rounded-3xl border border-border bg-card/90 p-6 shadow-soft backdrop-blur transition-smooth hover:-translate-y-1 hover:shadow-elegant ${
-                    i % 2 === 1 ? "lg:mt-12" : ""
-                  }`}
+                  className="group relative overflow-hidden rounded-3xl border border-white/40 bg-card/70 p-6 shadow-soft backdrop-blur-xl transition-smooth hover:-translate-y-1.5 hover:shadow-elegant animate-fade-up"
+                  style={{ animationDelay: `${i * 60}ms` }}
                 >
-                  <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-                  <div className="flex items-start gap-5">
-                    <div className="relative shrink-0">
-                      <div className="absolute inset-0 rounded-2xl gradient-primary opacity-30 blur-md transition-smooth group-hover:opacity-60" />
-                      <div className="relative grid h-14 w-14 place-items-center rounded-2xl gradient-primary text-primary-foreground shadow-soft">
-                        <GraduationCap className="h-6 w-6" />
+                  {/* glow */}
+                  <div
+                    className={`absolute -top-16 -right-16 h-40 w-40 rounded-full blur-3xl opacity-40 transition-smooth group-hover:opacity-80 ${
+                      isTeal ? "bg-teal/30" : "bg-primary/30"
+                    }`}
+                  />
+                  <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+                  <div className="relative flex items-start justify-between">
+                    <div className="relative">
+                      <div
+                        className={`absolute inset-0 rounded-2xl blur-md opacity-40 transition-smooth group-hover:opacity-80 ${
+                          isTeal ? "bg-teal/50" : "bg-primary/50"
+                        }`}
+                      />
+                      <div
+                        className={`relative grid h-14 w-14 place-items-center rounded-2xl shadow-soft text-white ${
+                          isTeal ? "" : ""
+                        }`}
+                        style={{
+                          background: isTeal
+                            ? "linear-gradient(135deg, var(--teal), color-mix(in oklab, var(--teal) 70%, white))"
+                            : "var(--gradient-primary, linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary))))",
+                        }}
+                      >
+                        <c.icon className="h-6 w-6" />
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary/80">
-                          Credential {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <span className="h-px flex-1 bg-border" />
-                      </div>
-                      <h3 className="mt-1.5 font-display text-lg font-bold tracking-tight">{q.title}</h3>
-                      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{q.desc}</p>
-                      <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-secondary px-2.5 py-0.5 text-[11px] font-semibold text-primary">
-                        <CheckCircle2 className="h-3.5 w-3.5" /> Verified
-                      </div>
-                    </div>
+                    <span className="inline-flex items-center gap-1 rounded-full glass px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-primary shadow-soft">
+                      <Globe2 className="h-3 w-3" /> {c.country}
+                    </span>
+                  </div>
+
+                  <h3 className="relative mt-6 font-display text-xl font-bold tracking-tight">
+                    {c.title}
+                  </h3>
+                  <p className="relative mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                    {c.institute}
+                  </p>
+
+                  <div className="relative mt-5 flex items-center justify-between border-t border-border/60 pt-4">
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+                      <CheckCircle2 className="h-3.5 w-3.5" /> Verified Credential
+                    </span>
+                    <span className="text-[11px] font-bold tabular-nums text-muted-foreground/70">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Education Table */}
-          <div className="mx-auto mt-16 max-w-4xl rounded-3xl border border-border bg-card/90 shadow-elegant backdrop-blur overflow-hidden">
-            <div className="flex items-center gap-3 border-b border-border bg-secondary/60 px-6 py-4">
-              <div className="grid h-10 w-10 place-items-center rounded-xl gradient-primary text-primary-foreground"><BookOpen className="h-5 w-5" /></div>
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-wider text-primary">Education</div>
-                <div className="text-sm font-semibold">Academic background</div>
-              </div>
-            </div>
-            <table className="w-full text-left text-sm">
-              <thead className="bg-secondary/30 text-xs uppercase tracking-wider text-muted-foreground">
-                <tr>
-                  <th className="px-6 py-3 font-semibold">Institution</th>
-                  <th className="px-6 py-3 font-semibold">Degree</th>
-                </tr>
-              </thead>
-              <tbody>
-                {education.map((e, i) => (
-                  <tr key={i} className="border-t border-border">
-                    <td className="px-6 py-4 font-medium text-foreground">{e.institution}</td>
-                    <td className="px-6 py-4 text-muted-foreground">{e.degree}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Experience highlight */}
-          <div className="relative mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl gradient-primary p-8 shadow-elegant sm:p-12">
-            <div className="absolute -top-12 -right-12 h-48 w-48 rounded-full bg-white/15 blur-2xl" />
-            <div className="absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
-            <div className="relative flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-              <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-white/15 text-white backdrop-blur">
-                <Stethoscope className="h-7 w-7" />
-              </div>
-              <div>
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">Experience Highlight</div>
-                <p className="mt-2 font-display text-xl font-semibold leading-snug text-white sm:text-2xl">
-                  Over 35 years of experience in Pediatric Medicine, Neonatal Care & Pediatric Neurology — with advanced international training and modern multidisciplinary child healthcare expertise.
-                </p>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
