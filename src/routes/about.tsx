@@ -44,6 +44,24 @@ const credentials = [
   { icon: Brain, title: "Fellowship in Pediatric Neurology", institute: "Guy’s & St Thomas’ Hospital, London", country: "United Kingdom", tone: "teal" },
 ];
 
+const smallCreds = [
+  { icon: GraduationCap, title: "MBBS", institute: "Bachelor of Medicine & Surgery", country: "Pakistan", tone: "primary" },
+  { icon: Award, title: "FCPS Pediatrics", institute: "College of Physicians & Surgeons", country: "Pakistan", tone: "teal" },
+  { icon: ShieldCheck, title: "MRCPCH", institute: "Royal College of Paediatrics & Child Health", country: "United Kingdom", tone: "primary" },
+  { icon: ShieldCheck, title: "MRCPI", institute: "Royal College of Physicians of Ireland", country: "Ireland", tone: "teal" },
+  { icon: ShieldCheck, title: "MRCPS", institute: "Royal College of Physicians & Surgeons", country: "Glasgow, UK", tone: "primary" },
+  { icon: Award, title: "FRCPCH", institute: "Fellow, RCPCH", country: "United Kingdom", tone: "teal" },
+  { icon: Award, title: "FRCPI", institute: "Fellow, RCPI", country: "Ireland", tone: "primary" },
+  { icon: Award, title: "FRCP", institute: "Fellow, RCPS Glasgow", country: "Glasgow, UK", tone: "teal" },
+];
+
+const trustStats = [
+  { icon: Globe2, title: "Internationally Trained", value: "Pakistan · UK · Ireland · Scotland" },
+  { icon: Award, title: "Multiple UK Fellowships", value: "FRCPCH · FRCPI · FRCP" },
+  { icon: Clock, title: "35+ Years Experience", value: "Pediatric & Neurology Care" },
+  { icon: ShieldCheck, title: "Trusted Specialist", value: "Child Neurology Authority" },
+];
+
 const expertise = [
   { icon: BrainIcon, title: "Epilepsy & Seizure Disorders", desc: "Advanced diagnosis and long-term management." },
   { icon: Activity, title: "Developmental Delays", desc: "Early assessment and intervention plans." },
@@ -157,66 +175,177 @@ function About() {
             subtitle="Internationally trained Pediatrician & Child Neurologist with advanced specialty qualifications from Pakistan, Ireland, Scotland, and the United Kingdom."
           />
 
-          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-6">
-            {credentials.map((c, i) => {
+          {/* BENTO GRID */}
+          <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-6 lg:grid-cols-12">
+            {/* FEATURE CARD — Pediatric Neurology Fellowship */}
+            <article
+              className="group relative col-span-1 overflow-hidden rounded-[2rem] border border-white/40 p-8 shadow-elegant backdrop-blur-xl transition-smooth hover:-translate-y-1.5 animate-fade-up md:col-span-6 lg:col-span-7 lg:p-10"
+              style={{ background: "linear-gradient(135deg, color-mix(in oklab, var(--primary) 14%, var(--card)), color-mix(in oklab, var(--teal) 10%, var(--card)))" }}
+            >
+              <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/30 blur-3xl animate-blob" />
+              <div className="absolute -bottom-20 -left-16 h-64 w-64 rounded-full bg-teal/30 blur-3xl animate-blob" style={{ animationDelay: "1.6s" }} />
+              <div className="pointer-events-none absolute inset-0 rounded-[2rem] [mask:linear-gradient(#000,#000)_content-box,linear-gradient(#000,#000)] [mask-composite:exclude] p-px bg-gradient-to-br from-primary/40 via-transparent to-teal/40 opacity-70" />
+              <Brain className="pointer-events-none absolute right-8 top-8 h-28 w-28 text-primary/10" />
+
+              <div className="relative flex h-full flex-col">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex items-center gap-1.5 rounded-full glass px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary shadow-soft">
+                    <Sparkles className="h-3 w-3" /> Flagship Fellowship
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full glass px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary shadow-soft">
+                    <Globe2 className="h-3 w-3" /> London, UK
+                  </span>
+                </div>
+
+                <div className="mt-6 flex items-start gap-5">
+                  <div className="relative shrink-0">
+                    <div className="absolute inset-0 rounded-2xl bg-primary/40 blur-lg opacity-70 transition-smooth group-hover:opacity-100" />
+                    <div className="relative grid h-16 w-16 place-items-center rounded-2xl gradient-primary text-primary-foreground shadow-elegant">
+                      <Brain className="h-8 w-8" />
+                    </div>
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
+                      Fellowship in Pediatric Neurology
+                    </h3>
+                    <p className="mt-2 text-sm font-semibold text-primary/90 sm:text-base">
+                      Guy’s &amp; St Thomas’ Hospital · London
+                    </p>
+                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+                      Advanced specialty training in pediatric neurological disorders — epilepsy,
+                      cerebral palsy, developmental and neuromotor conditions — from one of the
+                      UK’s most respected teaching hospitals.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-auto pt-8 flex flex-wrap items-center gap-3">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+                    <CheckCircle2 className="h-3.5 w-3.5" /> Verified Credential
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-teal/15 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: "var(--teal)" }}>
+                    <Activity className="h-3.5 w-3.5" /> Pediatric Neurology Specialist
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            {/* MEDIUM CARD — Neonatal Fellowship */}
+            <article
+              className="group relative col-span-1 overflow-hidden rounded-[2rem] border border-white/40 p-7 shadow-elegant backdrop-blur-xl transition-smooth hover:-translate-y-1.5 animate-fade-up md:col-span-6 lg:col-span-5"
+              style={{ animationDelay: "80ms", background: "linear-gradient(160deg, color-mix(in oklab, var(--teal) 16%, var(--card)), var(--card))" }}
+            >
+              <div className="absolute -top-20 -right-16 h-60 w-60 rounded-full bg-teal/35 blur-3xl animate-blob" />
+              <Baby className="pointer-events-none absolute -right-2 -bottom-2 h-32 w-32 text-teal/10" />
+              <div className="pointer-events-none absolute inset-0 rounded-[2rem] [mask:linear-gradient(#000,#000)_content-box,linear-gradient(#000,#000)] [mask-composite:exclude] p-px bg-gradient-to-br from-teal/40 via-transparent to-primary/30 opacity-70" />
+
+              <div className="relative flex h-full flex-col">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full glass px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] shadow-soft" style={{ color: "var(--teal)" }}>
+                    <Sparkles className="h-3 w-3" /> Specialty Training
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full glass px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] shadow-soft" style={{ color: "var(--teal)" }}>
+                    <Globe2 className="h-3 w-3" /> United Kingdom
+                  </span>
+                </div>
+
+                <div className="mt-6 flex items-start gap-4">
+                  <div className="relative shrink-0">
+                    <div className="absolute inset-0 rounded-2xl bg-teal/50 blur-md opacity-70 group-hover:opacity-100 transition-smooth" />
+                    <div className="relative grid h-14 w-14 place-items-center rounded-2xl text-white shadow-elegant"
+                      style={{ background: "linear-gradient(135deg, var(--teal), color-mix(in oklab, var(--teal) 65%, white))" }}>
+                      <Baby className="h-7 w-7" />
+                    </div>
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-2xl font-bold tracking-tight">
+                      Fellowship in Neonatal Medicine
+                    </h3>
+                    <p className="mt-2 text-sm font-semibold sm:text-base" style={{ color: "var(--teal)" }}>
+                      Advanced NICU Training · UK
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      Specialized neonatal intensive care for newborns and high-risk premature infants.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-auto pt-6 flex items-center justify-between border-t border-border/50">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: "var(--teal)" }}>
+                    <CheckCircle2 className="h-3.5 w-3.5" /> Verified
+                  </span>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">Neonatology</span>
+                </div>
+              </div>
+            </article>
+
+            {/* SMALL CREDENTIAL CARDS — 8 tiles fill 12 cols × 2 rows (lg:col-span-3) */}
+            {smallCreds.map((c, i) => {
               const isTeal = c.tone === "teal";
               return (
-                <div
+                <article
                   key={i}
-                  className="group relative overflow-hidden rounded-3xl border border-white/40 bg-card/70 p-6 shadow-soft backdrop-blur-xl transition-smooth hover:-translate-y-1.5 hover:shadow-elegant animate-fade-up"
-                  style={{ animationDelay: `${i * 60}ms` }}
+                  className="group relative col-span-1 overflow-hidden rounded-2xl border border-white/40 bg-card/70 p-5 shadow-soft backdrop-blur-xl transition-smooth hover:-translate-y-1.5 hover:shadow-elegant animate-fade-up md:col-span-3 lg:col-span-3"
+                  style={{ animationDelay: `${160 + i * 60}ms` }}
                 >
-                  {/* glow */}
-                  <div
-                    className={`absolute -top-16 -right-16 h-40 w-40 rounded-full blur-3xl opacity-40 transition-smooth group-hover:opacity-80 ${
-                      isTeal ? "bg-teal/30" : "bg-primary/30"
-                    }`}
-                  />
-                  <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+                  <div className={`absolute -top-12 -right-12 h-28 w-28 rounded-full blur-3xl opacity-40 transition-smooth group-hover:opacity-90 ${isTeal ? "bg-teal/30" : "bg-primary/30"}`} />
+                  <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-                  <div className="relative flex items-start justify-between">
+                  <div className="relative flex items-start justify-between gap-2">
                     <div className="relative">
+                      <div className={`absolute inset-0 rounded-xl blur-md opacity-50 group-hover:opacity-90 transition-smooth ${isTeal ? "bg-teal/50" : "bg-primary/50"}`} />
                       <div
-                        className={`absolute inset-0 rounded-2xl blur-md opacity-40 transition-smooth group-hover:opacity-80 ${
-                          isTeal ? "bg-teal/50" : "bg-primary/50"
-                        }`}
-                      />
-                      <div
-                        className={`relative grid h-14 w-14 place-items-center rounded-2xl shadow-soft text-white ${
-                          isTeal ? "" : ""
-                        }`}
+                        className="relative grid h-11 w-11 place-items-center rounded-xl text-white shadow-soft"
                         style={{
                           background: isTeal
                             ? "linear-gradient(135deg, var(--teal), color-mix(in oklab, var(--teal) 70%, white))"
-                            : "var(--gradient-primary, linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary))))",
+                            : "linear-gradient(135deg, hsl(var(--primary)), color-mix(in oklab, hsl(var(--primary)) 70%, white))",
                         }}
                       >
-                        <c.icon className="h-6 w-6" />
+                        <c.icon className="h-5 w-5" />
                       </div>
                     </div>
-                    <span className="inline-flex items-center gap-1 rounded-full glass px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-primary shadow-soft">
-                      <Globe2 className="h-3 w-3" /> {c.country}
+                    <span className="inline-flex items-center gap-1 rounded-full glass px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-primary shadow-soft">
+                      <Globe2 className="h-2.5 w-2.5" /> {c.country}
                     </span>
                   </div>
 
-                  <h3 className="relative mt-6 font-display text-xl font-bold tracking-tight">
-                    {c.title}
-                  </h3>
-                  <p className="relative mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                    {c.institute}
-                  </p>
+                  <h3 className="relative mt-4 font-display text-lg font-bold tracking-tight">{c.title}</h3>
+                  <p className="relative mt-1 text-xs leading-relaxed text-muted-foreground">{c.institute}</p>
 
-                  <div className="relative mt-5 flex items-center justify-between border-t border-border/60 pt-4">
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
-                      <CheckCircle2 className="h-3.5 w-3.5" /> Verified Credential
+                  <div className="relative mt-4 flex items-center justify-between border-t border-border/60 pt-3">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                      <CheckCircle2 className="h-3 w-3" /> Verified
                     </span>
-                    <span className="text-[11px] font-bold tabular-nums text-muted-foreground/70">
+                    <span className="text-[10px] font-bold tabular-nums text-muted-foreground/70">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
-                </div>
+                </article>
               );
             })}
+          </div>
+
+          {/* TRUST INDICATORS */}
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {trustStats.map((s, i) => (
+              <div
+                key={i}
+                className="group relative overflow-hidden rounded-2xl border border-white/40 bg-card/70 p-5 shadow-soft backdrop-blur-xl transition-smooth hover:-translate-y-1 hover:shadow-elegant animate-fade-up"
+                style={{ animationDelay: `${i * 80}ms` }}
+              >
+                <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-primary/20 blur-2xl opacity-60 transition-smooth group-hover:opacity-100" />
+                <div className="relative flex items-center gap-3">
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl gradient-primary text-primary-foreground shadow-soft">
+                    <s.icon className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-primary">{s.title}</div>
+                    <div className="mt-0.5 truncate text-sm font-semibold text-foreground">{s.value}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
