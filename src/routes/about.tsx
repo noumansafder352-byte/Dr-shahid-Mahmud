@@ -158,24 +158,25 @@ function About() {
           <SectionHeading
             center
             eyebrow="Credentials"
-            title="Professional Credentials & International Expertise"
-            subtitle="Internationally trained Pediatrician & Child Neurologist with advanced specialty qualifications from Pakistan, Ireland, Scotland, and the United Kingdom."
+            title="International Qualifications & Expertise"
+            subtitle="Advanced medical training and internationally recognized pediatric specialty credentials from Pakistan, Ireland, Scotland, and the United Kingdom."
           />
 
-          {/* BENTO GRID */}
-          <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-6 lg:grid-cols-12">
-            {/* FEATURE CARD — Pediatric Neurology Fellowship */}
+          {/* PREMIUM 4-COL BENTO GRID */}
+          <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[minmax(220px,auto)]">
+            {/* FEATURED — Pediatric Neurology (2x2) */}
             <article
-              className="group relative col-span-1 overflow-hidden rounded-[2rem] border border-white/40 p-8 shadow-elegant backdrop-blur-xl transition-smooth hover:-translate-y-1.5 animate-fade-up md:col-span-6 lg:col-span-7 lg:p-10"
+              className="group relative overflow-hidden rounded-[2rem] border border-white/40 p-8 shadow-elegant backdrop-blur-xl transition-smooth hover:-translate-y-1.5 animate-fade-up sm:col-span-2 lg:col-span-2 lg:row-span-2 lg:p-10"
               style={{ background: "linear-gradient(135deg, color-mix(in oklab, var(--primary) 14%, var(--card)), color-mix(in oklab, var(--teal) 10%, var(--card)))" }}
             >
               <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/30 blur-3xl animate-blob" />
               <div className="absolute -bottom-20 -left-16 h-64 w-64 rounded-full bg-teal/30 blur-3xl animate-blob" style={{ animationDelay: "1.6s" }} />
               <div className="pointer-events-none absolute inset-0 rounded-[2rem] [mask:linear-gradient(#000,#000)_content-box,linear-gradient(#000,#000)] [mask-composite:exclude] p-px bg-gradient-to-br from-primary/40 via-transparent to-teal/40 opacity-70" />
-              <Brain className="pointer-events-none absolute right-8 top-8 h-28 w-28 text-primary/10" />
+              <Brain className="pointer-events-none absolute right-6 top-6 h-32 w-32 text-primary/10" />
+              <Sparkles className="pointer-events-none absolute right-12 bottom-10 h-6 w-6 text-primary/30 animate-float" />
 
               <div className="relative flex h-full flex-col">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full glass px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary shadow-soft">
                     <Sparkles className="h-3 w-3" /> Flagship Fellowship
                   </span>
@@ -184,7 +185,7 @@ function About() {
                   </span>
                 </div>
 
-                <div className="mt-6 flex items-start gap-5">
+                <div className="mt-8 flex items-start gap-5">
                   <div className="relative shrink-0">
                     <div className="absolute inset-0 rounded-2xl bg-primary/40 blur-lg opacity-70 transition-smooth group-hover:opacity-100" />
                     <div className="relative grid h-16 w-16 place-items-center rounded-2xl gradient-primary text-primary-foreground shadow-elegant">
@@ -192,42 +193,41 @@ function About() {
                     </div>
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
+                    <h3 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-[2rem] lg:leading-[1.15]">
                       Fellowship in Pediatric Neurology
                     </h3>
                     <p className="mt-2 text-sm font-semibold text-primary/90 sm:text-base">
                       Guy’s &amp; St Thomas’ Hospital · London
                     </p>
-                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
-                      Advanced specialty training in pediatric neurological disorders — epilepsy,
-                      cerebral palsy, developmental and neuromotor conditions — from one of the
-                      UK’s most respected teaching hospitals.
-                    </p>
                   </div>
                 </div>
 
-                <div className="mt-auto pt-8 flex flex-wrap items-center gap-3">
+                <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+                  Advanced specialty training in pediatric neurological disorders and developmental care.
+                </p>
+
+                <div className="mt-auto pt-8 flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
                     <CheckCircle2 className="h-3.5 w-3.5" /> Verified Credential
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-teal/15 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: "var(--teal)" }}>
-                    <Activity className="h-3.5 w-3.5" /> Pediatric Neurology Specialist
+                    <Activity className="h-3.5 w-3.5" /> Neurology Specialist
                   </span>
                 </div>
               </div>
             </article>
 
-            {/* MEDIUM CARD — Neonatal Fellowship */}
+            {/* MEDIUM — Neonatal Fellowship (2x1) */}
             <article
-              className="group relative col-span-1 overflow-hidden rounded-[2rem] border border-white/40 p-7 shadow-elegant backdrop-blur-xl transition-smooth hover:-translate-y-1.5 animate-fade-up md:col-span-6 lg:col-span-5"
+              className="group relative overflow-hidden rounded-[2rem] border border-white/40 p-7 shadow-elegant backdrop-blur-xl transition-smooth hover:-translate-y-1.5 animate-fade-up sm:col-span-2 lg:col-span-2 lg:row-span-1"
               style={{ animationDelay: "80ms", background: "linear-gradient(160deg, color-mix(in oklab, var(--teal) 16%, var(--card)), var(--card))" }}
             >
               <div className="absolute -top-20 -right-16 h-60 w-60 rounded-full bg-teal/35 blur-3xl animate-blob" />
-              <Baby className="pointer-events-none absolute -right-2 -bottom-2 h-32 w-32 text-teal/10" />
+              <Baby className="pointer-events-none absolute -right-3 -bottom-3 h-28 w-28 text-teal/10" />
               <div className="pointer-events-none absolute inset-0 rounded-[2rem] [mask:linear-gradient(#000,#000)_content-box,linear-gradient(#000,#000)] [mask-composite:exclude] p-px bg-gradient-to-br from-teal/40 via-transparent to-primary/30 opacity-70" />
 
               <div className="relative flex h-full flex-col">
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full glass px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] shadow-soft" style={{ color: "var(--teal)" }}>
                     <Sparkles className="h-3 w-3" /> Specialty Training
                   </span>
@@ -236,7 +236,7 @@ function About() {
                   </span>
                 </div>
 
-                <div className="mt-6 flex items-start gap-4">
+                <div className="mt-5 flex items-start gap-4">
                   <div className="relative shrink-0">
                     <div className="absolute inset-0 rounded-2xl bg-teal/50 blur-md opacity-70 group-hover:opacity-100 transition-smooth" />
                     <div className="relative grid h-14 w-14 place-items-center rounded-2xl text-white shadow-elegant"
@@ -245,19 +245,19 @@ function About() {
                     </div>
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-display text-2xl font-bold tracking-tight">
+                    <h3 className="font-display text-xl font-bold tracking-tight sm:text-2xl">
                       Fellowship in Neonatal Medicine
                     </h3>
-                    <p className="mt-2 text-sm font-semibold sm:text-base" style={{ color: "var(--teal)" }}>
+                    <p className="mt-1.5 text-sm font-semibold" style={{ color: "var(--teal)" }}>
                       Advanced NICU Training · UK
                     </p>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      Specialized neonatal intensive care for newborns and high-risk premature infants.
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      Specialized intensive care for newborns and high-risk premature infants.
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-auto pt-6 flex items-center justify-between border-t border-border/50">
+                <div className="mt-5 flex items-center justify-between border-t border-border/50 pt-4">
                   <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: "var(--teal)" }}>
                     <CheckCircle2 className="h-3.5 w-3.5" /> Verified
                   </span>
@@ -266,7 +266,7 @@ function About() {
               </div>
             </article>
 
-            {/* SMALL CREDENTIAL CARDS — 8 tiles fill 12 cols × 2 rows (lg:col-span-3) */}
+            {/* SMALL CREDENTIAL CARDS — 8 tiles, 2 fill row beside featured + 6 below */}
             {smallCreds.map((c, i) => {
               const isTeal = c.tone === "teal";
               return (
