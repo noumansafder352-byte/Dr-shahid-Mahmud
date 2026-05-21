@@ -219,7 +219,7 @@ function About() {
 
             {/* MEDIUM — Neonatal Fellowship (2x1) */}
             <article
-              className="group relative overflow-hidden rounded-[2rem] border border-white/40 p-7 shadow-elegant backdrop-blur-xl transition-smooth hover:-translate-y-1.5 animate-fade-up sm:col-span-2 lg:col-span-2 lg:row-span-1"
+              className="group relative overflow-hidden rounded-[2rem] border border-white/40 p-7 shadow-elegant backdrop-blur-xl transition-smooth hover:-translate-y-1.5 animate-fade-up sm:col-span-2 lg:col-span-2 lg:row-span-2 lg:p-8"
               style={{ animationDelay: "80ms", background: "linear-gradient(160deg, color-mix(in oklab, var(--teal) 16%, var(--card)), var(--card))" }}
             >
               <div className="absolute -top-20 -right-16 h-60 w-60 rounded-full bg-teal/35 blur-3xl animate-blob" />
