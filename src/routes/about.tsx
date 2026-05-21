@@ -272,7 +272,7 @@ function About() {
               return (
                 <article
                   key={i}
-                  className="group relative col-span-1 overflow-hidden rounded-2xl border border-white/40 bg-card/70 p-5 shadow-soft backdrop-blur-xl transition-smooth hover:-translate-y-1.5 hover:shadow-elegant animate-fade-up md:col-span-3 lg:col-span-3"
+                  className="group relative overflow-hidden rounded-2xl border border-white/40 bg-card/70 p-5 shadow-soft backdrop-blur-xl transition-smooth hover:-translate-y-1.5 hover:shadow-elegant animate-fade-up"
                   style={{ animationDelay: `${160 + i * 60}ms` }}
                 >
                   <div className={`absolute -top-12 -right-12 h-28 w-28 rounded-full blur-3xl opacity-40 transition-smooth group-hover:opacity-90 ${isTeal ? "bg-teal/30" : "bg-primary/30"}`} />
