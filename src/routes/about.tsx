@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Award, GraduationCap, ShieldCheck, Brain, Stethoscope, Globe2, BookOpen,
-  MessageCircle, Clock, CheckCircle2, Baby, Activity, HeartPulse, Sparkles,
+  Award, ShieldCheck, Brain, Globe2, BookOpen,
+  MessageCircle, Clock, Baby, Activity, HeartPulse, Sparkles,
   Brain as BrainIcon, Footprints, Moon, Apple, Users, Microscope,
 } from "lucide-react";
 import doctorHero from "@/assets/dr-shahid-portrait.png";
