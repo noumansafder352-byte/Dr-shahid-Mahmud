@@ -14,6 +14,7 @@ import { SITE, waLink } from "@/lib/site";
 import { Counter } from "@/components/site/Counter";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { CTABand } from "@/components/site/CTABand";
+import { GoogleReviews } from "@/components/site/GoogleReviews";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,12 +46,6 @@ const why = [
   { icon: ShieldCheck, title: "Evidence-Based Care", desc: "Modern, internationally aligned protocols for every patient." },
   { icon: Heart, title: "Compassionate Approach", desc: "Family-centered consultations focused on parent confidence." },
   { icon: Brain, title: "Pediatric Neurology Expert", desc: "Specialized in seizures, epilepsy and developmental disorders." },
-];
-
-const testimonials = [
-  { name: "Ayesha K.", text: "Dr. Shahid was incredibly patient with my baby. The diagnosis was spot on and we saw improvement within days." },
-  { name: "Muhammad A.", text: "Best child specialist in Rawalpindi. He explains everything clearly and never rushes the consultation." },
-  { name: "Sana R.", text: "Trusted him with both my children. His knowledge of child neurology is exceptional and reassuring." },
 ];
 
 function Home() {
