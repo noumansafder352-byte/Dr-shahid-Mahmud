@@ -14,6 +14,7 @@ import { SITE, waLink } from "@/lib/site";
 import { Counter } from "@/components/site/Counter";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { CTABand } from "@/components/site/CTABand";
+import { GoogleReviews } from "@/components/site/GoogleReviews";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,12 +46,6 @@ const why = [
   { icon: ShieldCheck, title: "Evidence-Based Care", desc: "Modern, internationally aligned protocols for every patient." },
   { icon: Heart, title: "Compassionate Approach", desc: "Family-centered consultations focused on parent confidence." },
   { icon: Brain, title: "Pediatric Neurology Expert", desc: "Specialized in seizures, epilepsy and developmental disorders." },
-];
-
-const testimonials = [
-  { name: "Ayesha K.", text: "Dr. Shahid was incredibly patient with my baby. The diagnosis was spot on and we saw improvement within days." },
-  { name: "Muhammad A.", text: "Best child specialist in Rawalpindi. He explains everything clearly and never rushes the consultation." },
-  { name: "Sana R.", text: "Trusted him with both my children. His knowledge of child neurology is exceptional and reassuring." },
 ];
 
 function Home() {
@@ -192,31 +187,8 @@ function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="bg-secondary/40 py-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <SectionHeading center eyebrow="Parent Testimonials" title="Real stories from real families" />
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <div key={i} className="rounded-2xl bg-card p-6 shadow-soft border border-border">
-                <div className="flex gap-0.5 text-amber-500">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-foreground/80">"{t.text}"</p>
-                <div className="mt-5 flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-full gradient-primary text-primary-foreground font-semibold text-sm">
-                    {t.name[0]}
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">Verified parent</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* GOOGLE REVIEWS */}
+      <GoogleReviews />
 
       {/* WELLNESS TIPS / TRUST STRIP */}
       <section className="container mx-auto px-4 py-20 lg:px-8">
