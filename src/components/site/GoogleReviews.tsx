@@ -1,9 +1,7 @@
-import { Star, ExternalLink, ChevronLeft, ChevronRight, BadgeCheck } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Star, ExternalLink, BadgeCheck } from "lucide-react";
 
-// NOTE: To connect live Google reviews later, replace REVIEWS / OVERALL / TOTAL
-// with data fetched from a server function that calls the Google Places API
-// (place/details endpoint, fields=reviews,rating,user_ratings_total).
+// To connect live Google reviews later, replace REVIEWS / OVERALL / TOTAL
+// with data fetched from a server function that calls the Google Places API.
 const OVERALL = 4.9;
 const TOTAL = 1248;
 const PLACE_URL = "https://www.google.com/search?q=Dr+Shahid+Mahmud+Nelson+Medical+Complex+Rawalpindi";
@@ -58,32 +56,47 @@ function Stars({ value, size = 14 }: { value: number; size?: number }) {
   );
 }
 
+function ReviewCard({ r }: { r: Review }) {
+  return (
+    <article
+      className="group relative w-[300px] sm:w-[360px] flex-none rounded-3xl bg-card border border-border p-6 shadow-soft transition-smooth hover:-translate-y-1 hover:shadow-elegant"
+    >
+      <div className="absolute right-5 top-5 opacity-90">
+        <GoogleG className="h-5 w-5" />
+      </div>
+      <div className="flex items-center gap-3">
+        <div
+          className="grid h-11 w-11 place-items-center rounded-full font-display text-base font-semibold text-white"
+          style={{ background: r.color }}
+        >
+          {r.initial}
+        </div>
+        <div>
+          <div className="flex items-center gap-1.5">
+            <span className="text-sm font-semibold text-foreground">{r.author}</span>
+            <BadgeCheck className="h-4 w-4 text-primary" />
+          </div>
+          <div className="text-xs text-muted-foreground">Local Guide · {r.date}</div>
+        </div>
+      </div>
+      <div className="mt-3"><Stars value={r.rating} /></div>
+      <p className="mt-3 text-sm leading-relaxed text-foreground/80 line-clamp-5">"{r.text}"</p>
+      <div className="mt-5 flex items-center justify-between border-t border-border pt-4 text-xs text-muted-foreground">
+        <span className="inline-flex items-center gap-1.5">
+          <BadgeCheck className="h-3.5 w-3.5 text-primary" /> Verified Google review
+        </span>
+        <span className="whitespace-nowrap">Posted on Google</span>
+      </div>
+    </article>
+  );
+}
+
 export function GoogleReviews() {
-  const scroller = useRef<HTMLDivElement | null>(null);
-  const [active, setActive] = useState(0);
-
-  const scrollBy = (dir: 1 | -1) => {
-    const el = scroller.current;
-    if (!el) return;
-    const card = el.querySelector<HTMLElement>("[data-card]");
-    const w = card ? card.offsetWidth + 20 : 360;
-    el.scrollBy({ left: dir * w, behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    const el = scroller.current;
-    if (!el) return;
-    const onScroll = () => {
-      const card = el.querySelector<HTMLElement>("[data-card]");
-      const w = card ? card.offsetWidth + 20 : 360;
-      setActive(Math.round(el.scrollLeft / w));
-    };
-    el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
-  }, []);
+  // Duplicate the list so the marquee loops seamlessly with translateX(-50%).
+  const loop = [...REVIEWS, ...REVIEWS];
 
   return (
-    <section className="bg-secondary/40 py-20">
+    <section className="bg-secondary/40 py-20 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
@@ -99,86 +112,64 @@ export function GoogleReviews() {
         </div>
 
         {/* Rating summary */}
-        <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center justify-center gap-6 rounded-3xl bg-card border border-border p-6 shadow-soft sm:flex-row sm:gap-10 sm:p-7">
+        <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center justify-center gap-5 rounded-3xl bg-card border border-border p-6 shadow-soft sm:flex-row sm:gap-8 sm:p-7">
           <div className="flex items-center gap-4">
-            <GoogleG className="h-10 w-10" />
+            <GoogleG className="h-10 w-10 flex-none" />
             <div className="text-left">
-              <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Google Rating</div>
+              <div className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">Google Rating</div>
               <div className="flex items-baseline gap-2">
-                <span className="font-display text-3xl font-bold text-foreground">{OVERALL.toFixed(1)}</span>
+                <span className="font-display text-3xl font-bold text-foreground leading-none">{OVERALL.toFixed(1)}</span>
                 <Stars value={OVERALL} size={16} />
               </div>
             </div>
           </div>
           <div className="hidden h-12 w-px bg-border sm:block" />
           <div className="text-center sm:text-left">
-            <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Based on</div>
-            <div className="font-display text-lg font-semibold text-foreground">{TOTAL.toLocaleString()}+ Reviews</div>
+            <div className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">Based on</div>
+            <div className="font-display text-lg font-semibold text-foreground whitespace-nowrap">
+              {TOTAL.toLocaleString()}+ Reviews
+            </div>
           </div>
-          <a href={PLACE_URL} target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition-smooth">
-            View on Google <ExternalLink className="h-4 w-4" />
+          <a
+            href={PLACE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition-smooth whitespace-nowrap"
+          >
+            <span className="whitespace-nowrap">View on Google</span>
+            <ExternalLink className="h-4 w-4 flex-none" />
           </a>
         </div>
 
-        {/* Carousel */}
-        <div className="relative mt-12">
-          <button onClick={() => scrollBy(-1)} aria-label="Previous reviews"
-            className="absolute -left-2 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full bg-card border border-border p-3 shadow-elegant hover:bg-primary hover:text-primary-foreground transition-smooth md:flex">
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button onClick={() => scrollBy(1)} aria-label="Next reviews"
-            className="absolute -right-2 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full bg-card border border-border p-3 shadow-elegant hover:bg-primary hover:text-primary-foreground transition-smooth md:flex">
-            <ChevronRight className="h-5 w-5" />
-          </button>
+        {/* Auto-scrolling marquee */}
+        <div className="relative mt-12 marquee-pause">
+          {/* Edge fades */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-24 bg-gradient-to-r from-secondary/60 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-24 bg-gradient-to-l from-secondary/60 to-transparent" />
 
-          <div ref={scroller}
-            className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {REVIEWS.map((r, i) => (
-              <article key={i} data-card
-                className="group relative w-[88%] flex-none snap-center rounded-3xl bg-card border border-border p-6 shadow-soft transition-smooth hover:-translate-y-1 hover:shadow-elegant sm:w-[420px]">
-                <div className="absolute right-5 top-5 opacity-90">
-                  <GoogleG className="h-5 w-5" />
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-full font-display text-base font-semibold text-white"
-                    style={{ background: r.color }}>
-                    {r.initial}
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-sm font-semibold text-foreground">{r.author}</span>
-                      <BadgeCheck className="h-4 w-4 text-primary" />
-                    </div>
-                    <div className="text-xs text-muted-foreground">Local Guide · {r.date}</div>
-                  </div>
-                </div>
-                <div className="mt-3"><Stars value={r.rating} /></div>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/80">"{r.text}"</p>
-                <div className="mt-5 flex items-center justify-between border-t border-border pt-4 text-xs text-muted-foreground">
-                  <span className="inline-flex items-center gap-1.5">
-                    <BadgeCheck className="h-3.5 w-3.5 text-primary" /> Verified Google review
-                  </span>
-                  <span>Posted on Google</span>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {/* Dots */}
-          <div className="mt-6 flex items-center justify-center gap-2">
-            {REVIEWS.map((_, i) => (
-              <span key={i}
-                className={`h-1.5 rounded-full transition-all ${i === active ? "w-6 bg-primary" : "w-1.5 bg-border"}`} />
-            ))}
+          <div className="overflow-hidden">
+            <div
+              className="flex w-max gap-5 py-2 animate-marquee"
+              style={{ ['--marquee-duration' as string]: '60s' }}
+            >
+              {loop.map((r, i) => (
+                <ReviewCard key={i} r={r} />
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Footer CTA */}
         <div className="mt-10 text-center">
-          <a href={PLACE_URL} target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-smooth">
-            <GoogleG className="h-4 w-4" /> View All Reviews on Google <ExternalLink className="h-4 w-4" />
+          <a
+            href={PLACE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-smooth whitespace-nowrap"
+          >
+            <GoogleG className="h-4 w-4 flex-none" />
+            <span className="whitespace-nowrap">View All Reviews on Google</span>
+            <ExternalLink className="h-4 w-4 flex-none" />
           </a>
         </div>
       </div>
