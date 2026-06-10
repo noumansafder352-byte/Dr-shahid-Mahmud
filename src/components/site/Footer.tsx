@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Facebook, Instagram, Clock, MessageCircle } from "lucide-react";
 import { NAV, SITE, waLink } from "@/lib/site";
-import logoAsset from "@/assets/logo-v2.png.asset.json";
+import logoAsset from "@/assets/logo-mark.png.asset.json";
 
 const logo = logoAsset.url;
 
@@ -25,12 +25,17 @@ export function Footer() {
       <div className="container relative mx-auto grid gap-10 px-4 py-16 lg:grid-cols-4 lg:px-8 text-[15px]">
         {/* Brand */}
         <div className="lg:col-span-1">
-          <img
-            src={logo}
-            alt="Dr Shahid's Child & Neuro Clinic"
-            className="h-20 w-auto object-contain"
-            style={{ mixBlendMode: "screen" }}
-          />
+          <div className="flex items-center gap-3">
+            <img
+              src={logo}
+              alt="Dr Shahid's Child & Neuro Clinic"
+              className="h-16 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]"
+            />
+            <div className="leading-tight">
+              <div className="font-display text-lg font-bold text-white">Dr Shahid&apos;s</div>
+              <div className="text-xs font-medium uppercase tracking-[0.14em] text-white/75">Child &amp; Neuro Clinic</div>
+            </div>
+          </div>
           <p className="mt-5 text-[15px] text-white/80 leading-relaxed">{SITE.tagline}</p>
           <div className="mt-5 flex gap-2">
             <a href={SITE.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"
