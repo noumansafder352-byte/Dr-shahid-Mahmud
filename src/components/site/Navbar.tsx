@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle, MapPin, Facebook, Instagram } from "lucide-react";
 import { NAV, SITE, waLink } from "@/lib/site";
-import logoAsset from "@/assets/clinic-logo-new.png.asset.json";
+import logoAsset from "@/assets/logo-v2.png.asset.json";
 import { cn } from "@/lib/utils";
 
 const logo = logoAsset.url;
@@ -22,7 +22,9 @@ export function Navbar() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-smooth",
-        scrolled ? "glass shadow-soft" : "bg-transparent"
+        scrolled
+          ? "bg-background/95 backdrop-blur-xl shadow-[0_4px_24px_-8px_rgba(0,0,0,0.12)] border-b border-border/60"
+          : "bg-background/80 backdrop-blur-md"
       )}
     >
       {/* TOP UTILITY BAR */}
@@ -66,7 +68,7 @@ export function Navbar() {
           <img
             src={logo}
             alt="Dr Shahid's Child & Neuro Clinic"
-            className="h-14 w-auto sm:h-16 lg:h-20 object-contain"
+            className="h-16 w-auto sm:h-20 lg:h-24 object-contain"
           />
         </Link>
 
