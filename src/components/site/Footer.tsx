@@ -28,9 +28,10 @@ export function Footer() {
           <img
             src={logo}
             alt="Dr Shahid's Child & Neuro Clinic"
-            className="h-20 w-auto object-contain brightness-0 invert"
+            className="h-20 w-auto object-contain"
+            style={{ mixBlendMode: "screen" }}
           />
-          <p className="mt-5 text-[15px] text-white/75 leading-relaxed">{SITE.tagline}</p>
+          <p className="mt-5 text-[15px] text-white/80 leading-relaxed">{SITE.tagline}</p>
           <div className="mt-5 flex gap-2">
             <a href={SITE.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"
               className="grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-white/5 text-white/80 hover:text-white hover:border-white/40 hover:-translate-y-0.5 transition-smooth">
