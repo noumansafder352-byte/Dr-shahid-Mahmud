@@ -1,9 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
-import { NAV, waLink } from "@/lib/site";
-import logo from "@/assets/clinic-logo.png";
+import { Menu, X, MessageCircle, MapPin, Facebook, Instagram } from "lucide-react";
+import { NAV, SITE, waLink } from "@/lib/site";
+import logoAsset from "@/assets/clinic-logo-new.png.asset.json";
 import { cn } from "@/lib/utils";
+
+const logo = logoAsset.url;
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -23,19 +25,59 @@ export function Navbar() {
         scrolled ? "glass shadow-soft" : "bg-transparent"
       )}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 py-3 lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Dr Shahid's Child & Neuro Clinic logo" width={64} height={64} className="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-contain bg-white shadow-soft" />
+      {/* TOP UTILITY BAR */}
+      <div className="hidden md:block border-b border-border/60 bg-card/60 backdrop-blur">
+        <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-2 text-xs text-foreground/70 lg:px-8">
+          <a
+            href="https://www.google.com/maps?q=Nelson+Medical+Complex+Abid+Majeed+Road+Rawalpindi"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 hover:text-primary transition-smooth"
+          >
+            <MapPin className="h-3.5 w-3.5 text-primary" />
+            <span>Nelson Medical Complex, Abid Majeed Road, Rawalpindi</span>
+          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href={SITE.facebook}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="grid h-7 w-7 place-items-center rounded-full border border-border bg-background/60 text-foreground/70 hover:border-primary hover:text-primary hover:-translate-y-0.5 transition-smooth"
+            >
+              <Facebook className="h-3.5 w-3.5" />
+            </a>
+            <a
+              href={SITE.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="grid h-7 w-7 place-items-center rounded-full border border-border bg-background/60 text-foreground/70 hover:border-primary hover:text-primary hover:-translate-y-0.5 transition-smooth"
+            >
+              <Instagram className="h-3.5 w-3.5" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* MAIN NAVIGATION */}
+      <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3 lg:px-8">
+        <Link to="/" className="flex items-center gap-3 shrink-0">
+          <img
+            src={logo}
+            alt="Dr Shahid's Child & Neuro Clinic"
+            className="h-14 w-auto sm:h-16 lg:h-20 object-contain"
+          />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-3 xl:gap-5">
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {NAV.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               activeOptions={{ exact: n.to === "/" }}
-              activeProps={{ className: "text-primary bg-secondary" }}
-              className="rounded-full px-5 py-2.5 text-base font-medium text-foreground/80 hover:text-primary hover:bg-secondary transition-smooth"
+              activeProps={{ className: "nav-link-active" }}
+              className="nav-link relative px-4 py-2 text-[15px] font-medium text-foreground/80 transition-smooth"
             >
               {n.label}
             </Link>
@@ -47,7 +89,7 @@ export function Navbar() {
             href={waLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition-smooth"
+            className="inline-flex items-center gap-2 rounded-full gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth"
           >
             <MessageCircle className="h-4 w-4" /> Book Consultation
           </a>
