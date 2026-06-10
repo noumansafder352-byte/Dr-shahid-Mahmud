@@ -174,3 +174,22 @@
   will-change: transform;
 }
 .marquee-pause:hover .animate-marquee { animation-play-state: paused; }
+
+/* Premium nav link hover */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 9999px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.nav-link:hover { color: var(--primary); }
+.nav-link:hover::after { transform: scaleX(1); }
+.nav-link-active { color: var(--primary); }
+.nav-link-active::after { transform: scaleX(1); }

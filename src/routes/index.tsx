@@ -225,18 +225,34 @@ function Home() {
               width="100%" height="420" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Nelson Medical Complex, Rawalpindi"
             />
           </div>
-          <div className="rounded-3xl glass p-7 shadow-soft flex flex-col gap-5">
-            <div>
-              <div className="grid h-12 w-12 place-items-center rounded-2xl gradient-primary text-primary-foreground"><MapPin className="h-5 w-5" /></div>
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-soft flex flex-col gap-5">
+            <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full opacity-20 blur-2xl" style={{ background: "var(--gradient-primary)" }} />
+            <div className="relative">
+              <div className="grid h-12 w-12 place-items-center rounded-2xl gradient-primary text-primary-foreground shadow-soft">
+                <MapPin className="h-5 w-5" />
+              </div>
               <h3 className="mt-4 font-display text-lg font-semibold">Clinic Address</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{SITE.address}</p>
             </div>
-            <div>
+
+            <div className="relative rounded-2xl border border-border bg-secondary/40 p-4">
+              <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                <Phone className="h-3.5 w-3.5 text-primary" /> Call the Clinic
+              </div>
+              <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-display text-base font-semibold text-foreground">
+                <a href={`tel:${SITE.phoneIntl}`} className="hover:text-primary transition-smooth">{SITE.phone}</a>
+                <span className="text-muted-foreground/60">|</span>
+                <a href={`tel:${SITE.phoneSecondaryIntl}`} className="hover:text-primary transition-smooth">{SITE.phoneSecondary}</a>
+              </div>
+            </div>
+
+            <div className="relative">
               <h4 className="font-display text-sm font-semibold">Clinic Hours</h4>
               <p className="mt-1 text-sm text-muted-foreground">{SITE.hours}</p>
               <p className="text-sm text-muted-foreground">Sunday: Closed</p>
             </div>
-            <a href={waLink()} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center justify-center gap-2 rounded-full gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition-smooth">
+
+            <a href={waLink()} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center justify-center gap-2 rounded-full gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth">
               <MessageCircle className="h-4 w-4" /> Book Consultation
             </a>
           </div>

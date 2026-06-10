@@ -6,12 +6,18 @@ export const SITE = {
   tagline: "Dedicated to helping children grow healthy, strong & happy.",
   phone: "0300 5197469",
   phoneIntl: "+923005197469",
+  phoneSecondary: "0329 3166499",
+  phoneSecondaryIntl: "+923293166499",
   whatsapp: "923005197469",
   clinic: "Nelson Medical Complex",
   address: "Nelson Medical Complex, Abid Majeed Road, Rawalpindi, Pakistan 46000",
   url: "https://drshahidmahmud.com",
   hours: "Mon – Sat: 11:00 AM – 6:00 PM",
+  hoursDays: "Monday – Saturday",
+  hoursTime: "11:00 AM – 6:00 PM",
   experience: "35+ Years Experience",
+  facebook: "https://facebook.com",
+  instagram: "https://instagram.com",
 };
 
 export const NAV = [
