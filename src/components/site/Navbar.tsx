@@ -28,8 +28,8 @@ export function Navbar() {
       )}
     >
       {/* TOP UTILITY BAR */}
-      <div className="hidden md:block border-b border-border/60 bg-card/60 backdrop-blur">
-        <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-2 text-xs text-foreground/70 lg:px-8">
+      <div className="hidden md:block border-b border-border/60">
+        <div className="container mx-auto flex items-center justify-between gap-4 px-3 py-2 text-xs text-foreground/70 lg:px-6">
           <a
             href="https://www.google.com/maps?q=Nelson+Medical+Complex+Abid+Majeed+Road+Rawalpindi"
             target="_blank"
@@ -63,12 +63,12 @@ export function Navbar() {
       </div>
 
       {/* MAIN NAVIGATION */}
-      <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3 lg:px-8">
-        <Link to="/" className="flex items-center gap-3 shrink-0">
+      <div className="container mx-auto flex items-center justify-between gap-4 px-3 py-2.5 lg:px-6">
+        <Link to="/" className="flex items-center gap-3 shrink-0 -ml-1">
           <img
             src={logo}
             alt="Dr Shahid's Child & Neuro Clinic"
-            className="h-16 w-auto sm:h-20 lg:h-24 object-contain"
+            className="h-12 w-auto sm:h-14 lg:h-16 object-contain"
           />
         </Link>
 
