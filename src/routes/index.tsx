@@ -17,6 +17,7 @@ import { CTABand } from "@/components/site/CTABand";
 import { GoogleReviews } from "@/components/site/GoogleReviews";
 
 const doctorHero = doctorHeroAsset.url;
+const careIllu = careIlluAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
