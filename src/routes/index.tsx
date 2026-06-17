@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, MessageCircle, Award, Heart, Brain, ShieldCheck, Sparkles, Star, ArrowRight, CheckCircle2, MapPin, Activity } from "lucide-react";
-import doctorHero from "@/assets/dr-shahid-portrait.png";
+import doctorHeroAsset from "@/assets/home-hero-portrait.jpg.asset.json";
 import careIllu from "@/assets/pediatric-care.jpg";
 import svcCheckup from "@/assets/svc-checkup.jpg";
 import svcPneumonia from "@/assets/svc-pneumonia.jpg";
@@ -15,6 +15,8 @@ import { Counter } from "@/components/site/Counter";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { CTABand } from "@/components/site/CTABand";
 import { GoogleReviews } from "@/components/site/GoogleReviews";
+
+const doctorHero = doctorHeroAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
