@@ -6,12 +6,12 @@ import {
   Wind, GraduationCap, HeartHandshake, FlaskConical, CheckCircle2,
   Calendar, ArrowRight,
 } from "lucide-react";
-import doctorHero from "@/assets/dr-shahid-portrait.png";
+import doctorHeroAsset from "@/assets/about-consultant-portrait.jpg.asset.json";
 import aboutBg from "@/assets/about-bg.jpg";
-import careImgAsset from "@/assets/about-consultant.jpg.asset.json";
+import careImg from "@/assets/care-illustration.jpg";
 import { SITE, waLink } from "@/lib/site";
 
-const careImg = careImgAsset.url;
+const doctorHero = doctorHeroAsset.url;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -77,7 +77,7 @@ function About() {
             <div className="relative mx-auto max-w-md">
               <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-20 blur-2xl" />
               <div className="relative overflow-hidden rounded-[2rem] glass shadow-elegant">
-                <img src={doctorHero} alt={SITE.doctor} width={1024} height={1280} className="h-full w-full object-cover" />
+                <img src={doctorHero} alt={SITE.doctor} width={1024} height={1280} className="w-full aspect-[3/4] object-cover object-[center_15%]" />
               </div>
               <div className="absolute -left-4 bottom-8 hidden rounded-2xl glass p-4 shadow-soft sm:flex sm:items-center sm:gap-3 animate-float">
                 <div className="grid h-10 w-10 place-items-center rounded-full gradient-primary text-primary-foreground"><Award className="h-5 w-5" /></div>
