@@ -93,10 +93,10 @@ function Home() {
             </div>
           </div>
 
-          <div className="relative animate-fade-up" style={{ animationDelay: "0.15s" }}>
+          <div className="relative mx-auto lg:ml-auto lg:mr-0 max-w-sm sm:max-w-md lg:max-w-[440px] xl:max-w-[480px] w-full animate-fade-up" style={{ animationDelay: "0.15s" }}>
             <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-20 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[2rem] glass shadow-elegant">
-              <img src={doctorHero} alt={`${SITE.doctor} — Best Pediatrician in Rawalpindi`} width={1024} height={1280} className="h-full w-full object-cover" />
+            <div className="relative overflow-hidden rounded-[2rem] glass shadow-elegant aspect-[4/5]">
+              <img src={doctorHero} alt={`${SITE.doctor} — Best Pediatrician in Rawalpindi`} width={1024} height={1280} className="h-full w-full object-cover object-top" />
             </div>
             <div className="absolute -left-4 bottom-8 hidden rounded-2xl glass p-4 shadow-soft sm:flex sm:items-center sm:gap-3 animate-float">
               <div className="grid h-10 w-10 place-items-center rounded-full gradient-primary text-primary-foreground"><Award className="h-5 w-5" /></div>
