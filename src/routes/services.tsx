@@ -4,14 +4,18 @@ import { PageHero } from "@/components/site/PageHero";
 import { CTABand } from "@/components/site/CTABand";
 import { waLink } from "@/lib/site";
 const PX = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1200`;
-const svcCheckup = PX(7447002);
-const svcPneumonia = PX(18830315);
-const svcVaccine = PX(3952236);
-const svcNeurology = PX(7108277);
-const svcNewborn = PX(3259628);
-const svcNutrition = PX(7579831);
-const svcAsthma = PX(4546135);
-const svcDevelopment = PX(6129040);
+const imgFeverCough  = PX(7447002);  // girl checkup with stethoscope
+const imgPneumonia   = PX(18830315); // child chest examination
+const imgVaccine     = PX(8413187);  // gloved hand with vaccine vial
+const imgAsthma      = PX(4546135);  // children in medical masks
+const imgAllergy     = PX(7659690);  // doctor consulting (allergy assessment)
+const imgNutrition   = PX(7579831);  // doctor consultation — growth & nutrition
+const imgSeizure     = PX(6129040);  // doctor discussing care at bedside
+const imgStomach     = PX(7677588);  // mother caring for child in bed (abdominal/sick)
+const imgNewborn     = PX(3259628);  // newborn with hospital gloved staff
+const imgDevelopment = PX(4484788);  // child playing with toy (developmental)
+const imgNeurology   = PX(7108277);  // doctor with reflex hammer
+const imgNeonatal    = PX(3279203);  // mother with newborn (neonatal care)
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -27,18 +31,18 @@ export const Route = createFileRoute("/services")({
 });
 
 const services = [
-  { img: svcCheckup, tag: "Pediatrics", title: "Frequent Fever & Cough Treatment", desc: "Accurate diagnosis and modern protocols for recurring fever, cough, cold and flu." },
-  { img: svcPneumonia, tag: "Pediatrics", title: "Pneumonia Treatment", desc: "Comprehensive care for pediatric pneumonia and chest infections of all severity." },
-  { img: svcVaccine, tag: "Preventive Care", title: "Vaccination Services", desc: "Complete EPI plus international vaccines with detailed safety counselling for parents." },
-  { img: svcAsthma, tag: "Respiratory", title: "Asthma Treatment", desc: "Long-term asthma control plans, inhaler technique training and trigger management." },
-  { img: svcCheckup, tag: "Allergy", title: "Allergy Treatment", desc: "Diagnosis and management of food, skin and environmental allergies in children." },
-  { img: svcNutrition, tag: "Wellness", title: "Child Growth & Nutrition", desc: "Personalized nutrition guidance and growth monitoring for healthy development." },
-  { img: svcNeurology, tag: "Neurology", title: "Fits / Seizure Treatment", desc: "Expert pediatric epilepsy and seizure management with EEG evaluation guidance." },
-  { img: svcCheckup, tag: "Gastro", title: "Stomach & Digestive Problems", desc: "Treatment for diarrhea, constipation, vomiting, reflux and abdominal concerns." },
-  { img: svcNewborn, tag: "Neonatology", title: "Newborn Baby Care", desc: "Routine and high-risk newborn care including premature baby follow-up." },
-  { img: svcDevelopment, tag: "Development", title: "Mental & Developmental Care", desc: "Compassionate evaluation of behavioral, emotional and developmental concerns." },
-  { img: svcNeurology, tag: "Neurology", title: "Child Neurology Consultation", desc: "Specialized neurological assessment for delays, tics, headaches and more." },
-  { img: svcNewborn, tag: "Neonatology", title: "Neonatal Care", desc: "Advanced neonatal care for newborns with medical complications or risk." },
+  { img: imgFeverCough,  tag: "Pediatrics",      title: "Frequent Fever & Cough Treatment", desc: "Accurate diagnosis and modern protocols for recurring fever, cough, cold and flu." },
+  { img: imgPneumonia,   tag: "Pediatrics",      title: "Pneumonia Treatment",              desc: "Comprehensive care for pediatric pneumonia and chest infections of all severity." },
+  { img: imgVaccine,     tag: "Preventive Care", title: "Vaccination Services",             desc: "Complete EPI plus international vaccines with detailed safety counselling for parents." },
+  { img: imgAsthma,      tag: "Respiratory",     title: "Asthma Treatment",                 desc: "Long-term asthma control plans, inhaler technique training and trigger management." },
+  { img: imgAllergy,     tag: "Allergy",         title: "Allergy Treatment",                desc: "Diagnosis and management of food, skin and environmental allergies in children." },
+  { img: imgNutrition,   tag: "Wellness",        title: "Child Growth & Nutrition",         desc: "Personalized nutrition guidance and growth monitoring for healthy development." },
+  { img: imgSeizure,     tag: "Neurology",       title: "Fits / Seizure Treatment",         desc: "Expert pediatric epilepsy and seizure management with EEG evaluation guidance." },
+  { img: imgStomach,     tag: "Gastro",          title: "Stomach & Digestive Problems",     desc: "Treatment for diarrhea, constipation, vomiting, reflux and abdominal concerns." },
+  { img: imgNewborn,     tag: "Neonatology",     title: "Newborn Baby Care",                desc: "Routine and high-risk newborn care including premature baby follow-up." },
+  { img: imgDevelopment, tag: "Development",     title: "Mental & Developmental Care",      desc: "Compassionate evaluation of behavioral, emotional and developmental concerns." },
+  { img: imgNeurology,   tag: "Neurology",       title: "Child Neurology Consultation",     desc: "Specialized neurological assessment for delays, tics, headaches and more." },
+  { img: imgNeonatal,    tag: "Neonatology",     title: "Neonatal Care",                    desc: "Advanced neonatal care for newborns with medical complications or risk." },
 ];
 
 function Services() {
