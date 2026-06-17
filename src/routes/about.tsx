@@ -8,8 +8,10 @@ import {
 } from "lucide-react";
 import doctorHero from "@/assets/dr-shahid-portrait.png";
 import aboutBg from "@/assets/about-bg.jpg";
-import careImg from "@/assets/care-illustration.jpg";
+import careImgAsset from "@/assets/about-consultant.jpg.asset.json";
 import { SITE, waLink } from "@/lib/site";
+
+const careImg = careImgAsset.url;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -140,7 +142,7 @@ function About() {
           <div className="relative order-2 lg:order-1">
             <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-15 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2rem] shadow-elegant">
-              <img src={careImg} alt="Compassionate child healthcare" className="h-full w-full object-cover" />
+              <img src={careImg} alt="Dr. Shahid Mahmud consulting with a patient" className="w-full aspect-[4/3] object-cover" />
             </div>
             <div className="absolute -bottom-6 -right-4 hidden rounded-2xl glass p-5 shadow-soft sm:block">
               <div className="text-3xl font-bold text-gradient font-display">35+</div>
