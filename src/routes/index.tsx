@@ -16,6 +16,8 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { CTABand } from "@/components/site/CTABand";
 import { GoogleReviews } from "@/components/site/GoogleReviews";
 
+const doctorHero = doctorHeroAsset.url;
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
