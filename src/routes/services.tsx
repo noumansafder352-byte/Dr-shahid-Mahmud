@@ -4,14 +4,18 @@ import { PageHero } from "@/components/site/PageHero";
 import { CTABand } from "@/components/site/CTABand";
 import { waLink } from "@/lib/site";
 const PX = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1200`;
-const svcCheckup = PX(7447002);
-const svcPneumonia = PX(18830315);
-const svcVaccine = PX(3952236);
-const svcNeurology = PX(7108277);
-const svcNewborn = PX(3259628);
-const svcNutrition = PX(7579831);
-const svcAsthma = PX(4546135);
-const svcDevelopment = PX(6129040);
+const imgFeverCough  = PX(7447002);  // girl checkup with stethoscope
+const imgPneumonia   = PX(18830315); // child chest examination
+const imgVaccine     = PX(8413187);  // gloved hand with vaccine vial
+const imgAsthma      = PX(4546135);  // children in medical masks
+const imgAllergy     = PX(7659690);  // doctor consulting (allergy assessment)
+const imgNutrition   = PX(7579831);  // doctor consultation — growth & nutrition
+const imgSeizure     = PX(6129040);  // doctor discussing care at bedside
+const imgStomach     = PX(7677588);  // mother caring for child in bed (abdominal/sick)
+const imgNewborn     = PX(3259628);  // newborn with hospital gloved staff
+const imgDevelopment = PX(4484788);  // child playing with toy (developmental)
+const imgNeurology   = PX(7108277);  // doctor with reflex hammer
+const imgNeonatal    = PX(3279203);  // mother with newborn (neonatal care)
 
 export const Route = createFileRoute("/services")({
   head: () => ({
