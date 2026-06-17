@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, MessageCircle, Award, Heart, Brain, ShieldCheck, Sparkles, Star, ArrowRight, CheckCircle2, MapPin, Activity } from "lucide-react";
 import doctorHeroAsset from "@/assets/home-hero-portrait.jpg.asset.json";
-import careIllu from "@/assets/pediatric-care.jpg";
+import careIlluAsset from "@/assets/home-our-story.jpg.asset.json";
 import svcCheckup from "@/assets/svc-checkup.jpg";
 import svcPneumonia from "@/assets/svc-pneumonia.jpg";
 import svcVaccine from "@/assets/svc-vaccine.jpg";
