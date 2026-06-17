@@ -173,7 +173,7 @@ function Home() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative">
             <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-10 blur-2xl" />
-            <img src={careIllu} alt="Compassionate child care" loading="lazy" width={1200} height={900} className="relative rounded-3xl shadow-elegant" />
+            <img src={careIllu} alt="Dr. Shahid Mahmud in his clinic" loading="lazy" width={1200} height={900} className="relative rounded-3xl shadow-elegant w-full aspect-[4/3] object-cover" />
           </div>
           <div>
             <SectionHeading eyebrow="Why Choose Dr. Shahid" title="Trusted by thousands of parents in Rawalpindi" subtitle="A military medical background combined with decades of pediatric expertise — care your family can rely on." />
