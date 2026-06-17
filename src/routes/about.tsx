@@ -8,8 +8,10 @@ import {
 } from "lucide-react";
 import doctorHero from "@/assets/dr-shahid-portrait.png";
 import aboutBg from "@/assets/about-bg.jpg";
-import careImg from "@/assets/care-illustration.jpg";
+import careImgAsset from "@/assets/about-consultant.jpg.asset.json";
 import { SITE, waLink } from "@/lib/site";
+
+const careImg = careImgAsset.url;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
