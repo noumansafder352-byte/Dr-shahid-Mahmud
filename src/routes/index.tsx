@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, MessageCircle, Award, Heart, Brain, ShieldCheck, Sparkles, Star, ArrowRight, CheckCircle2, MapPin, Activity } from "lucide-react";
 import doctorHeroAsset from "@/assets/home-hero-portrait.jpg.asset.json";
-import careIllu from "@/assets/pediatric-care.jpg";
+import careIlluAsset from "@/assets/home-our-story.jpg.asset.json";
 import svcCheckup from "@/assets/svc-checkup.jpg";
 import svcPneumonia from "@/assets/svc-pneumonia.jpg";
 import svcVaccine from "@/assets/svc-vaccine.jpg";
@@ -17,6 +17,7 @@ import { CTABand } from "@/components/site/CTABand";
 import { GoogleReviews } from "@/components/site/GoogleReviews";
 
 const doctorHero = doctorHeroAsset.url;
+const careIllu = careIlluAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -172,7 +173,7 @@ function Home() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative">
             <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-10 blur-2xl" />
-            <img src={careIllu} alt="Compassionate child care" loading="lazy" width={1200} height={900} className="relative rounded-3xl shadow-elegant" />
+            <img src={careIllu} alt="Dr. Shahid Mahmud in his clinic" loading="lazy" width={1200} height={900} className="relative rounded-3xl shadow-elegant w-full aspect-[4/3] object-cover" />
           </div>
           <div>
             <SectionHeading eyebrow="Why Choose Dr. Shahid" title="Trusted by thousands of parents in Rawalpindi" subtitle="A military medical background combined with decades of pediatric expertise — care your family can rely on." />
