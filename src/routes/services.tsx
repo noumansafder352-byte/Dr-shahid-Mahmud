@@ -3,14 +3,15 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CTABand } from "@/components/site/CTABand";
 import { waLink } from "@/lib/site";
-import svcCheckup from "@/assets/svc-checkup.jpg";
-import svcPneumonia from "@/assets/svc-pneumonia.jpg";
-import svcVaccine from "@/assets/svc-vaccine.jpg";
-import svcNeurology from "@/assets/svc-neurology.jpg";
-import svcNewborn from "@/assets/svc-newborn.jpg";
-import svcNutrition from "@/assets/svc-nutrition.jpg";
-import svcAsthma from "@/assets/svc-asthma.jpg";
-import svcDevelopment from "@/assets/svc-development.jpg";
+const PX = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1200`;
+const svcCheckup = PX(7447002);
+const svcPneumonia = PX(18830315);
+const svcVaccine = PX(3952236);
+const svcNeurology = PX(7108277);
+const svcNewborn = PX(3259628);
+const svcNutrition = PX(7579831);
+const svcAsthma = PX(4546135);
+const svcDevelopment = PX(6129040);
 
 export const Route = createFileRoute("/services")({
   head: () => ({
