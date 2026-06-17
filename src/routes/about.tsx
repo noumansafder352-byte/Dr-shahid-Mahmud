@@ -6,12 +6,12 @@ import {
   Wind, GraduationCap, HeartHandshake, FlaskConical, CheckCircle2,
   Calendar, ArrowRight,
 } from "lucide-react";
-import doctorHero from "@/assets/dr-shahid-portrait.png";
+import doctorHeroAsset from "@/assets/about-consultant-portrait.jpg.asset.json";
 import aboutBg from "@/assets/about-bg.jpg";
-import careImgAsset from "@/assets/about-consultant.jpg.asset.json";
+import careImg from "@/assets/care-illustration.jpg";
 import { SITE, waLink } from "@/lib/site";
 
-const careImg = careImgAsset.url;
+const doctorHero = doctorHeroAsset.url;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
