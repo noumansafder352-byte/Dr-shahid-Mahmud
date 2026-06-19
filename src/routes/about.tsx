@@ -150,11 +150,8 @@ function JourneyPathway() {
 
         {/* Milestone nodes */}
         {milestones.map((m, i) => {
-          // Alternating content positions as requested for perfect visual rhythm:
-          // Row 1 (y=16.67%): Content ABOVE (bottom-full mb-5)
-          // Row 2 (y=50%): Content BELOW (top-full mt-5)
-          // Row 3 (y=83.33%): Content ABOVE (bottom-full mb-5)
-          const tooltipAbove = m.row === 0 || m.row === 2;
+          // Position all milestone contents ABOVE the journey path for consistency
+          const tooltipAbove = true;
           const isActive = active === i;
           return (
             <div
