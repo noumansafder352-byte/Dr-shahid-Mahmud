@@ -64,27 +64,26 @@ const trustReasons = [
   { icon: Users, title: "Compassionate Guidance", desc: "Supporting parents throughout every stage of treatment." },
 ];
 
-const journeyRows: {
+// Milestones positioned along a zig-zag pathway.
+// x/y are percentages within the SVG viewBox (1000 x 720).
+const milestones: {
   title: string;
   institution: string;
   desc: string;
-}[][] = [
-  [
-    { title: "MBBS", institution: "Army Medical College, Pakistan", desc: "Foundation of a lifelong commitment to child healthcare." },
-    { title: "FCPS (Pediatrics)", institution: "Pakistan", desc: "Advanced specialist training in pediatric medicine." },
-    { title: "MRCPI", institution: "Royal College of Physicians of Ireland", desc: "International postgraduate qualification." },
-    { title: "MRCPCH", institution: "Royal College of Paediatrics & Child Health, UK", desc: "Specialist pediatric training following UK standards." },
-  ],
-  [
-    { title: "Fellowship in Neonatal Medicine", institution: "RCPCH, UK", desc: "Advanced newborn and neonatal care expertise." },
-    { title: "Fellowship in Paediatric Neurology", institution: "RCPCH, UK", desc: "Subspecialty training in child neurology." },
-    { title: "FRCPI", institution: "Royal College of Physicians, Ireland", desc: "Recognition of professional excellence." },
-  ],
-  [
-    { title: "FRCP Edinburgh", institution: "Royal College of Physicians, Edinburgh", desc: "Prestigious international fellowship." },
-    { title: "FRCP Glasgow", institution: "Royal College of Physicians & Surgeons of Glasgow", desc: "Recognition of distinguished medical practice." },
-    { title: "FRCPCH", institution: "Royal College of Paediatrics & Child Health", desc: "Highest level of professional recognition in pediatrics." },
-  ],
+  x: number; // %
+  y: number; // %
+  row: 0 | 1 | 2;
+}[] = [
+  { title: "M.B.B.S.", institution: "Army Medical College, Pakistan", desc: "Foundation of a lifelong commitment to child healthcare.", x: 10, y: 16.67, row: 0 },
+  { title: "FCPS (Pediatrics)", institution: "Pakistan", desc: "Advanced specialist training in pediatric medicine.", x: 36.7, y: 16.67, row: 0 },
+  { title: "MRCPI", institution: "Royal College of Physicians Ireland", desc: "International postgraduate qualification.", x: 63.3, y: 16.67, row: 0 },
+  { title: "MRCPCH", institution: "Royal College of Paediatrics & Child Health, UK", desc: "Specialist pediatric training following UK standards.", x: 90, y: 16.67, row: 0 },
+  { title: "Fellowship in Neonatal Medicine", institution: "United Kingdom", desc: "Advanced expertise in newborn and neonatal care.", x: 90, y: 50, row: 1 },
+  { title: "Fellowship in Paediatric Neurology", institution: "United Kingdom", desc: "Advanced subspecialty training in child neurology.", x: 50, y: 50, row: 1 },
+  { title: "FRCPI", institution: "Ireland", desc: "Recognition of professional excellence.", x: 10, y: 50, row: 1 },
+  { title: "FRCP Edinburgh", institution: "United Kingdom", desc: "Prestigious international fellowship.", x: 10, y: 83.33, row: 2 },
+  { title: "FRCP Glasgow", institution: "United Kingdom", desc: "Recognition of distinguished medical practice.", x: 50, y: 83.33, row: 2 },
+  { title: "FRCPCH", institution: "United Kingdom", desc: "Highest professional recognition in pediatric healthcare.", x: 90, y: 83.33, row: 2 },
 ];
 
 function About() {
