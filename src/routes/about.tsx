@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   Award, ShieldCheck, Brain, Globe2, BookOpen, MapPin, Phone,
   MessageCircle, Clock, Baby, Activity, HeartPulse, Sparkles,
@@ -63,28 +64,228 @@ const trustReasons = [
   { icon: Users, title: "Compassionate Guidance", desc: "Supporting parents throughout every stage of treatment." },
 ];
 
-const journeyRows: {
+// Milestones positioned along a zig-zag pathway.
+// x/y are percentages within the SVG viewBox (1000 x 720).
+const milestones: {
   title: string;
   institution: string;
   desc: string;
-}[][] = [
-  [
-    { title: "MBBS", institution: "Army Medical College, Pakistan", desc: "Foundation of a lifelong commitment to child healthcare." },
-    { title: "FCPS (Pediatrics)", institution: "Pakistan", desc: "Advanced specialist training in pediatric medicine." },
-    { title: "MRCPI", institution: "Royal College of Physicians of Ireland", desc: "International postgraduate qualification." },
-    { title: "MRCPCH", institution: "Royal College of Paediatrics & Child Health, UK", desc: "Specialist pediatric training following UK standards." },
-  ],
-  [
-    { title: "Fellowship in Neonatal Medicine", institution: "RCPCH, UK", desc: "Advanced newborn and neonatal care expertise." },
-    { title: "Fellowship in Paediatric Neurology", institution: "RCPCH, UK", desc: "Subspecialty training in child neurology." },
-    { title: "FRCPI", institution: "Royal College of Physicians, Ireland", desc: "Recognition of professional excellence." },
-  ],
-  [
-    { title: "FRCP Edinburgh", institution: "Royal College of Physicians, Edinburgh", desc: "Prestigious international fellowship." },
-    { title: "FRCP Glasgow", institution: "Royal College of Physicians & Surgeons of Glasgow", desc: "Recognition of distinguished medical practice." },
-    { title: "FRCPCH", institution: "Royal College of Paediatrics & Child Health", desc: "Highest level of professional recognition in pediatrics." },
-  ],
+  x: number; // %
+  y: number; // %
+  row: 0 | 1 | 2;
+}[] = [
+  { title: "M.B.B.S.", institution: "Army Medical College, Pakistan", desc: "Foundation of a lifelong commitment to child healthcare.", x: 10, y: 16.67, row: 0 },
+  { title: "FCPS (Pediatrics)", institution: "Pakistan", desc: "Advanced specialist training in pediatric medicine.", x: 36.7, y: 16.67, row: 0 },
+  { title: "MRCPI", institution: "Royal College of Physicians Ireland", desc: "International postgraduate qualification.", x: 63.3, y: 16.67, row: 0 },
+  { title: "MRCPCH", institution: "Royal College of Paediatrics & Child Health, UK", desc: "Specialist pediatric training following UK standards.", x: 90, y: 16.67, row: 0 },
+  { title: "Fellowship in Neonatal Medicine", institution: "United Kingdom", desc: "Advanced expertise in newborn and neonatal care.", x: 90, y: 50, row: 1 },
+  { title: "Fellowship in Paediatric Neurology", institution: "United Kingdom", desc: "Advanced subspecialty training in child neurology.", x: 50, y: 50, row: 1 },
+  { title: "FRCPI", institution: "Ireland", desc: "Recognition of professional excellence.", x: 10, y: 50, row: 1 },
+  { title: "FRCP Edinburgh", institution: "United Kingdom", desc: "Prestigious international fellowship.", x: 10, y: 83.33, row: 2 },
+  { title: "FRCP Glasgow", institution: "United Kingdom", desc: "Recognition of distinguished medical practice.", x: 50, y: 83.33, row: 2 },
+  { title: "FRCPCH", institution: "United Kingdom", desc: "Highest professional recognition in pediatric healthcare.", x: 90, y: 83.33, row: 2 },
 ];
+
+function JourneyPathway() {
+  const [active, setActive] = useState<number | null>(null);
+  // Continuous zig-zag path through all 10 nodes (viewBox 1000x720)
+  // Row Y: 120, 360, 600. Row X spans 100..900.
+  const pathD =
+    "M 100 120 L 367 120 L 633 120 L 900 120 " +
+    "C 985 120, 985 360, 900 360 " +
+    "L 500 360 L 100 360 " +
+    "C 15 360, 15 600, 100 600 " +
+    "L 500 600 L 900 600";
+
+  return (
+    <div className="relative mx-auto mt-16 w-full max-w-6xl">
+      {/* Desktop / tablet interactive pathway */}
+      <div className="relative hidden aspect-[1000/720] w-full md:block">
+        <svg
+          viewBox="0 0 1000 720"
+          preserveAspectRatio="none"
+          className="absolute inset-0 h-full w-full"
+          aria-hidden
+        >
+          <defs>
+            <linearGradient id="journeyStroke" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.9" />
+            </linearGradient>
+            <filter id="journeyGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          {/* Soft track */}
+          <path
+            d={pathD}
+            fill="none"
+            stroke="hsl(var(--primary))"
+            strokeOpacity="0.12"
+            strokeWidth="14"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          {/* Dashed accent */}
+          <path
+            d={pathD}
+            fill="none"
+            stroke="url(#journeyStroke)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeDasharray="6 10"
+            filter="url(#journeyGlow)"
+            style={{
+              strokeDashoffset: 0,
+              animation: "journey-draw 18s linear infinite",
+            }}
+          />
+        </svg>
+
+        {/* Milestone nodes */}
+        {milestones.map((m, i) => {
+          const tooltipAbove = m.row === 2; // bottom row → tooltip above
+          const isActive = active === i;
+          return (
+            <div
+              key={i}
+              className="absolute -translate-x-1/2 -translate-y-1/2"
+              style={{ left: `${m.x}%`, top: `${m.y}%` }}
+            >
+              <button
+                type="button"
+                onMouseEnter={() => setActive(i)}
+                onMouseLeave={() => setActive((cur) => (cur === i ? null : cur))}
+                onFocus={() => setActive(i)}
+                onBlur={() => setActive((cur) => (cur === i ? null : cur))}
+                onClick={() => setActive((cur) => (cur === i ? null : i))}
+                aria-label={`Milestone ${i + 1}: ${m.title}`}
+                className="group relative grid h-14 w-14 place-items-center rounded-full bg-background outline-none transition-smooth"
+              >
+                {/* Outer pulse ring */}
+                <span
+                  className={`absolute inset-0 rounded-full transition-smooth ${
+                    isActive
+                      ? "scale-125 bg-primary/30 blur-md"
+                      : "scale-100 bg-primary/10 blur-sm"
+                  }`}
+                />
+                {/* Halo */}
+                <span className="absolute -inset-2 rounded-full border border-primary/20" />
+                {/* Node */}
+                <span
+                  className={`relative grid h-12 w-12 place-items-center rounded-full font-display text-sm font-bold text-primary-foreground shadow-elegant transition-smooth ${
+                    isActive
+                      ? "scale-110 gradient-primary ring-4 ring-primary/30"
+                      : "gradient-primary group-hover:scale-110"
+                  }`}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </button>
+
+              {/* Tooltip card */}
+              <div
+                role="tooltip"
+                className={`pointer-events-none absolute left-1/2 z-20 w-64 -translate-x-1/2 transition-all duration-300 ${
+                  tooltipAbove ? "bottom-full mb-4" : "top-full mt-4"
+                } ${
+                  isActive
+                    ? "translate-y-0 opacity-100 scale-100"
+                    : tooltipAbove
+                      ? "translate-y-2 opacity-0 scale-95"
+                      : "-translate-y-2 opacity-0 scale-95"
+                }`}
+              >
+                <div className="relative rounded-2xl border border-primary/30 bg-card/95 p-4 text-left shadow-elegant backdrop-blur-md">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary/80">
+                    Milestone {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <h4 className="mt-1 font-display text-base font-semibold leading-snug text-foreground">
+                    {m.title}
+                  </h4>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                    {m.institution}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {m.desc}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Mobile fallback — vertical interactive pathway */}
+      <div className="relative md:hidden">
+        <span className="absolute left-7 top-2 bottom-2 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-primary/40" />
+        <ul className="space-y-4">
+          {milestones.map((m, i) => {
+            const isActive = active === i;
+            return (
+              <li key={i} className="relative pl-16">
+                <button
+                  type="button"
+                  onClick={() => setActive((cur) => (cur === i ? null : i))}
+                  aria-expanded={isActive}
+                  className="absolute left-0 top-0 grid h-14 w-14 place-items-center rounded-full bg-background"
+                >
+                  <span className="absolute inset-0 rounded-full bg-primary/15 blur-sm" />
+                  <span className="relative grid h-12 w-12 place-items-center rounded-full gradient-primary font-display text-sm font-bold text-primary-foreground shadow-elegant ring-4 ring-background">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </button>
+                <div
+                  className={`overflow-hidden rounded-2xl border bg-card/90 backdrop-blur transition-all duration-300 ${
+                    isActive
+                      ? "border-primary/40 shadow-elegant"
+                      : "border-border shadow-soft"
+                  }`}
+                >
+                  <div className="p-4">
+                    <div className="flex items-center justify-between gap-2">
+                      <h4 className="font-display text-base font-semibold leading-snug text-foreground">
+                        {m.title}
+                      </h4>
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary/70">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                      {m.institution}
+                    </p>
+                    <div
+                      className={`grid transition-all duration-300 ${
+                        isActive ? "mt-2 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <p className="overflow-hidden text-sm leading-relaxed text-muted-foreground">
+                        {m.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <style>{`
+        @keyframes journey-draw {
+          to { stroke-dashoffset: -320; }
+        }
+      `}</style>
+    </div>
+  );
+}
 
 function About() {
   return (
@@ -217,66 +418,7 @@ function About() {
             </p>
           </div>
 
-          <div className="relative mx-auto mt-16 max-w-6xl">
-            {journeyRows.map((row, rIdx) => {
-              const reverse = rIdx % 2 === 1;
-              const offset = journeyRows.slice(0, rIdx).reduce((a, r) => a + r.length, 0);
-              return (
-                <div key={rIdx} className="relative mb-10 last:mb-0">
-                  <div
-                    className={`grid gap-6 sm:gap-5 sm:grid-cols-2 ${
-                      row.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"
-                    } ${reverse ? "lg:[direction:rtl]" : ""}`}
-                  >
-                    {row.map((m, i) => {
-                      const num = reverse ? offset + (row.length - i) : offset + i + 1;
-                      return (
-                        <div
-                          key={i}
-                          className="group relative animate-fade-up [direction:ltr]"
-                          style={{ animationDelay: `${(offset + i) * 0.07}s` }}
-                        >
-                          <div className="relative h-full rounded-3xl border border-border bg-card/80 p-6 pt-8 shadow-soft backdrop-blur transition-smooth hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-elegant">
-                            <div className="absolute -top-5 left-6 grid h-10 w-10 place-items-center rounded-full gradient-primary text-primary-foreground shadow-elegant ring-4 ring-background">
-                              <GraduationCap className="h-5 w-5" />
-                            </div>
-                            <div className="absolute right-5 top-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary/70">
-                              {String(num).padStart(2, "0")}
-                            </div>
-                            <h3 className="mt-2 font-display text-lg font-semibold leading-tight text-foreground">
-                              {m.title}
-                            </h3>
-                            <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-primary">
-                              {m.institution}
-                            </p>
-                            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                              {m.desc}
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  {rIdx < journeyRows.length - 1 && (
-                    <div className="pointer-events-none mt-4 hidden h-12 lg:flex">
-                      <svg
-                        viewBox="0 0 200 60"
-                        className={`h-12 w-48 text-primary/40 ${reverse ? "mr-auto ml-6 -scale-x-100" : "ml-auto mr-6"}`}
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeDasharray="4 6"
-                        strokeLinecap="round"
-                      >
-                        <path d="M 10 5 Q 190 5 190 30 Q 190 55 10 55" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+          <JourneyPathway />
 
           <div className="relative mx-auto mt-16 max-w-4xl animate-fade-up">
             <div className="absolute -inset-3 rounded-[2rem] gradient-primary opacity-20 blur-2xl" />
