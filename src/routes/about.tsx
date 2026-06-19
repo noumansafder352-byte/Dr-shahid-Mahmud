@@ -5,7 +5,7 @@ import {
   MessageCircle, Clock, Baby, Activity, HeartPulse, Sparkles,
   Footprints, Moon, Apple, Users, Microscope, Stethoscope,
   Wind, GraduationCap, HeartHandshake, FlaskConical, CheckCircle2,
-  Calendar, ArrowRight, Trophy,
+  Calendar, ArrowRight,
 } from "lucide-react";
 import doctorHeroAsset from "@/assets/about-consultant-portrait.jpg.asset.json";
 import aboutBg from "@/assets/about-bg.jpg";
