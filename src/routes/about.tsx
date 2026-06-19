@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   Award, ShieldCheck, Brain, Globe2, BookOpen, MapPin, Phone,
   MessageCircle, Clock, Baby, Activity, HeartPulse, Sparkles,
   Footprints, Moon, Apple, Users, Microscope, Stethoscope,
   Wind, GraduationCap, HeartHandshake, FlaskConical, CheckCircle2,
-  Calendar, ArrowRight,
+  Calendar, ArrowRight, Trophy,
 } from "lucide-react";
 import doctorHeroAsset from "@/assets/about-consultant-portrait.jpg.asset.json";
 import aboutBg from "@/assets/about-bg.jpg";
