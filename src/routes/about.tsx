@@ -150,11 +150,11 @@ function JourneyPathway() {
 
         {/* Milestone nodes */}
         {milestones.map((m, i) => {
-          // Perfectly layout tooltips with ZERO vertical overlap:
-          // Row 0 (y=16.67%): Tooltip ABOVE (bottom-full mb-4) -> extends 0% to 16.67%
-          // Row 1 (y=50%): Tooltip ABOVE (bottom-full mb-4) -> extends 33% to 50%
-          // Row 2 (y=83.33%): Tooltip BELOW (top-full mt-4) -> extends 83.33% to 100%
-          const tooltipAbove = m.row === 0 || m.row === 1;
+          // Alternating content positions as requested for perfect visual rhythm:
+          // Row 1 (y=16.67%): Content ABOVE (bottom-full mb-5)
+          // Row 2 (y=50%): Content BELOW (top-full mt-5)
+          // Row 3 (y=83.33%): Content ABOVE (bottom-full mb-5)
+          const tooltipAbove = m.row === 0 || m.row === 2;
           const isActive = active === i;
           return (
             <div
