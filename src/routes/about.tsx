@@ -63,6 +63,29 @@ const trustReasons = [
   { icon: Users, title: "Compassionate Guidance", desc: "Supporting parents throughout every stage of treatment." },
 ];
 
+const journeyRows: {
+  title: string;
+  institution: string;
+  desc: string;
+}[][] = [
+  [
+    { title: "MBBS", institution: "Army Medical College, Pakistan", desc: "Foundation of a lifelong commitment to child healthcare." },
+    { title: "FCPS (Pediatrics)", institution: "Pakistan", desc: "Advanced specialist training in pediatric medicine." },
+    { title: "MRCPI", institution: "Royal College of Physicians of Ireland", desc: "International postgraduate qualification." },
+    { title: "MRCPCH", institution: "Royal College of Paediatrics & Child Health, UK", desc: "Specialist pediatric training following UK standards." },
+  ],
+  [
+    { title: "Fellowship in Neonatal Medicine", institution: "RCPCH, UK", desc: "Advanced newborn and neonatal care expertise." },
+    { title: "Fellowship in Paediatric Neurology", institution: "RCPCH, UK", desc: "Subspecialty training in child neurology." },
+    { title: "FRCPI", institution: "Royal College of Physicians, Ireland", desc: "Recognition of professional excellence." },
+  ],
+  [
+    { title: "FRCP Edinburgh", institution: "Royal College of Physicians, Edinburgh", desc: "Prestigious international fellowship." },
+    { title: "FRCP Glasgow", institution: "Royal College of Physicians & Surgeons of Glasgow", desc: "Recognition of distinguished medical practice." },
+    { title: "FRCPCH", institution: "Royal College of Paediatrics & Child Health", desc: "Highest level of professional recognition in pediatrics." },
+  ],
+];
+
 function About() {
   return (
     <>
@@ -172,6 +195,108 @@ function About() {
                 high-quality healthcare that supports children's physical, neurological, emotional, and
                 developmental well-being.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3 — AREAS OF SPECIALIZED EXPERTISE */}
+      <section data-journey-anchor className="relative overflow-hidden py-24">
+        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-teal/15 blur-3xl" />
+        <div className="container relative mx-auto px-4 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+              <span className="h-px w-8 bg-primary/40" /> Academic Pathway <span className="h-px w-8 bg-primary/40" />
+            </span>
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
+              Professional Journey & <span className="text-gradient">International Credentials</span>
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-[17px]">
+              A connected path from medical graduate to internationally recognised consultant — every milestone earned, every fellowship hard-won.
+            </p>
+          </div>
+
+          <div className="relative mx-auto mt-16 max-w-6xl">
+            {journeyRows.map((row, rIdx) => {
+              const reverse = rIdx % 2 === 1;
+              const offset = journeyRows.slice(0, rIdx).reduce((a, r) => a + r.length, 0);
+              return (
+                <div key={rIdx} className="relative mb-10 last:mb-0">
+                  <div
+                    className={`grid gap-6 sm:gap-5 sm:grid-cols-2 ${
+                      row.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"
+                    } ${reverse ? "lg:[direction:rtl]" : ""}`}
+                  >
+                    {row.map((m, i) => {
+                      const num = reverse ? offset + (row.length - i) : offset + i + 1;
+                      return (
+                        <div
+                          key={i}
+                          className="group relative animate-fade-up [direction:ltr]"
+                          style={{ animationDelay: `${(offset + i) * 0.07}s` }}
+                        >
+                          <div className="relative h-full rounded-3xl border border-border bg-card/80 p-6 pt-8 shadow-soft backdrop-blur transition-smooth hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-elegant">
+                            <div className="absolute -top-5 left-6 grid h-10 w-10 place-items-center rounded-full gradient-primary text-primary-foreground shadow-elegant ring-4 ring-background">
+                              <GraduationCap className="h-5 w-5" />
+                            </div>
+                            <div className="absolute right-5 top-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary/70">
+                              {String(num).padStart(2, "0")}
+                            </div>
+                            <h3 className="mt-2 font-display text-lg font-semibold leading-tight text-foreground">
+                              {m.title}
+                            </h3>
+                            <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                              {m.institution}
+                            </p>
+                            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                              {m.desc}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {rIdx < journeyRows.length - 1 && (
+                    <div className="pointer-events-none mt-4 hidden h-12 lg:flex">
+                      <svg
+                        viewBox="0 0 200 60"
+                        className={`h-12 w-48 text-primary/40 ${reverse ? "mr-auto ml-6 -scale-x-100" : "ml-auto mr-6"}`}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeDasharray="4 6"
+                        strokeLinecap="round"
+                      >
+                        <path d="M 10 5 Q 190 5 190 30 Q 190 55 10 55" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="relative mx-auto mt-16 max-w-4xl animate-fade-up">
+            <div className="absolute -inset-3 rounded-[2rem] gradient-primary opacity-20 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-primary/30 bg-card/90 p-8 shadow-elegant backdrop-blur sm:p-10">
+              <div className="absolute -top-20 -right-20 h-56 w-56 rounded-full bg-primary/20 blur-3xl" />
+              <div className="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-teal/20 blur-3xl" />
+              <div className="relative flex flex-col items-center text-center">
+                <div className="grid h-14 w-14 place-items-center rounded-2xl gradient-primary text-primary-foreground shadow-elegant">
+                  <Award className="h-7 w-7" />
+                </div>
+                <h3 className="mt-5 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+                  <span className="text-gradient">35+ Years</span> of Excellence in Child Healthcare
+                </h3>
+                <p className="mt-3 text-sm font-semibold uppercase tracking-[0.22em] text-primary">
+                  Pediatrician • Neonatologist • Child Neurologist
+                </p>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-[17px]">
+                  Internationally trained specialist dedicated to helping children grow healthy, strong &amp; happy.
+                </p>
+              </div>
             </div>
           </div>
         </div>
