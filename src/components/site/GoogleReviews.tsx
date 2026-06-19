@@ -96,7 +96,7 @@ export function GoogleReviews() {
   const loop = [...REVIEWS, ...REVIEWS];
 
   return (
-    <section className="bg-secondary/40 py-20 overflow-hidden">
+    <section className="bg-secondary/40 py-14 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
