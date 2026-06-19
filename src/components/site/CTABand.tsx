@@ -3,7 +3,7 @@ import { SITE, waLink } from "@/lib/site";
 
 export function CTABand() {
   return (
-    <section className="container mx-auto px-4 py-20 lg:px-8">
+    <section className="container mx-auto px-4 py-14 lg:px-8">
       <div className="relative overflow-hidden rounded-[2rem] gradient-primary p-10 text-center shadow-elegant sm:p-16">
         {/* Decorative ambient glows */}
         <div className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-white/15 blur-3xl" />

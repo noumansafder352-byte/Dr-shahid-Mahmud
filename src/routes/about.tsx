@@ -346,7 +346,7 @@ function About() {
       </section>
 
       {/* SECTION 2 — A LIFETIME DEDICATED TO CHILD HEALTHCARE */}
-      <section className="relative py-24">
+      <section className="relative py-16">
         <div className="container mx-auto grid items-center gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-8">
           <div className="relative order-2 lg:order-1">
             <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-15 blur-3xl" />
@@ -386,7 +386,7 @@ function About() {
       </section>
 
       {/* SECTION 3 — AREAS OF SPECIALIZED EXPERTISE */}
-      <section data-journey-anchor className="relative overflow-hidden py-24">
+      <section data-journey-anchor className="relative overflow-hidden py-16">
         <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-teal/15 blur-3xl" />
         <div className="container relative mx-auto px-4 lg:px-8">
@@ -429,7 +429,7 @@ function About() {
       </section>
 
       {/* SECTION 3 — AREAS OF SPECIALIZED EXPERTISE */}
-      <section className="relative bg-secondary/40 py-24">
+      <section className="relative bg-secondary/40 py-16">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
@@ -461,7 +461,7 @@ function About() {
       </section>
 
       {/* SECTION 4 — CONDITIONS COMMONLY MANAGED */}
-      <section className="container mx-auto px-4 py-24 lg:px-8">
+      <section className="container mx-auto px-4 py-16 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
             <span className="h-px w-8 bg-primary/40" /> Conditions Treated
@@ -487,7 +487,7 @@ function About() {
       </section>
 
       {/* SECTION 5 — WHY PARENTS TRUST */}
-      <section className="relative overflow-hidden py-24 gradient-soft">
+      <section className="relative overflow-hidden py-16 gradient-soft">
         <div className="absolute -top-32 right-0 h-96 w-96 rounded-full bg-teal/15 blur-3xl" />
         <div className="container relative mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -518,7 +518,7 @@ function About() {
       </section>
 
       {/* SECTION 6 — CLINIC INFORMATION */}
-      <section className="container mx-auto px-4 py-24 lg:px-8">
+      <section className="container mx-auto px-4 py-16 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
             <span className="h-px w-8 bg-primary/40" /> Visit Us

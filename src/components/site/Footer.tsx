@@ -25,7 +25,7 @@ export function Footer() {
           style={{ background: "oklch(0.92 0.06 75)" }}
         />
 
-        <div className="relative grid gap-12 px-6 py-14 sm:px-10 lg:grid-cols-4 lg:gap-10 lg:px-14 lg:py-16 text-[15px]">
+        <div className="relative grid gap-12 px-6 py-10 sm:px-10 lg:grid-cols-4 lg:gap-10 lg:px-14 lg:py-12 text-[15px]">
           {/* Brand */}
           <div className="lg:col-span-1">
             <img

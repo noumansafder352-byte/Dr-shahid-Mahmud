@@ -50,7 +50,7 @@ function Services() {
     <>
       <PageHero eyebrow="Services" title="Comprehensive pediatric care" subtitle="From routine check-ups to specialized neurological care — every service designed around your child's well-being." />
 
-      <section className="container mx-auto px-4 py-16 lg:px-8">
+      <section className="container mx-auto px-4 py-12 lg:px-8">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <div key={i} className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-soft transition-smooth hover:-translate-y-1.5 hover:shadow-elegant">
