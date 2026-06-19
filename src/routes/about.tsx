@@ -418,66 +418,7 @@ function About() {
             </p>
           </div>
 
-          <div className="relative mx-auto mt-16 max-w-6xl">
-            {journeyRows.map((row, rIdx) => {
-              const reverse = rIdx % 2 === 1;
-              const offset = journeyRows.slice(0, rIdx).reduce((a, r) => a + r.length, 0);
-              return (
-                <div key={rIdx} className="relative mb-10 last:mb-0">
-                  <div
-                    className={`grid gap-6 sm:gap-5 sm:grid-cols-2 ${
-                      row.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"
-                    } ${reverse ? "lg:[direction:rtl]" : ""}`}
-                  >
-                    {row.map((m, i) => {
-                      const num = reverse ? offset + (row.length - i) : offset + i + 1;
-                      return (
-                        <div
-                          key={i}
-                          className="group relative animate-fade-up [direction:ltr]"
-                          style={{ animationDelay: `${(offset + i) * 0.07}s` }}
-                        >
-                          <div className="relative h-full rounded-3xl border border-border bg-card/80 p-6 pt-8 shadow-soft backdrop-blur transition-smooth hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-elegant">
-                            <div className="absolute -top-5 left-6 grid h-10 w-10 place-items-center rounded-full gradient-primary text-primary-foreground shadow-elegant ring-4 ring-background">
-                              <GraduationCap className="h-5 w-5" />
-                            </div>
-                            <div className="absolute right-5 top-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary/70">
-                              {String(num).padStart(2, "0")}
-                            </div>
-                            <h3 className="mt-2 font-display text-lg font-semibold leading-tight text-foreground">
-                              {m.title}
-                            </h3>
-                            <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-primary">
-                              {m.institution}
-                            </p>
-                            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                              {m.desc}
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  {rIdx < journeyRows.length - 1 && (
-                    <div className="pointer-events-none mt-4 hidden h-12 lg:flex">
-                      <svg
-                        viewBox="0 0 200 60"
-                        className={`h-12 w-48 text-primary/40 ${reverse ? "mr-auto ml-6 -scale-x-100" : "ml-auto mr-6"}`}
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeDasharray="4 6"
-                        strokeLinecap="round"
-                      >
-                        <path d="M 10 5 Q 190 5 190 30 Q 190 55 10 55" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+          <JourneyPathway />
 
           <div className="relative mx-auto mt-16 max-w-4xl animate-fade-up">
             <div className="absolute -inset-3 rounded-[2rem] gradient-primary opacity-20 blur-2xl" />
