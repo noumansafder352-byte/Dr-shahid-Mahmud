@@ -98,9 +98,9 @@ function JourneyPathway() {
     "L 500 600 L 900 600";
 
   return (
-    <div className="relative mx-auto mt-16 w-full max-w-6xl">
+    <div className="relative mx-auto mt-24 w-full max-w-6xl pb-24">
       {/* Desktop / tablet interactive pathway */}
-      <div className="relative hidden aspect-[1000/720] w-full md:block">
+      <div className="relative hidden aspect-[1000/780] w-full md:block">
         <svg
           viewBox="0 0 1000 720"
           preserveAspectRatio="none"
@@ -150,21 +150,24 @@ function JourneyPathway() {
 
         {/* Milestone nodes */}
         {milestones.map((m, i) => {
-          const tooltipAbove = m.row === 2; // bottom row → tooltip above
+          // Perfectly layout tooltips with ZERO vertical overlap:
+          // Row 0 (y=16.67%): Tooltip ABOVE (bottom-full mb-4) -> extends 0% to 16.67%
+          // Row 1 (y=50%): Tooltip ABOVE (bottom-full mb-4) -> extends 33% to 50%
+          // Row 2 (y=83.33%): Tooltip BELOW (top-full mt-4) -> extends 83.33% to 100%
+          const tooltipAbove = m.row === 0 || m.row === 1;
           const isActive = active === i;
           return (
             <div
               key={i}
-              className="absolute -translate-x-1/2 -translate-y-1/2"
+              className="absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300"
               style={{ left: `${m.x}%`, top: `${m.y}%` }}
+              onMouseEnter={() => setActive(i)}
+              onMouseLeave={() => setActive(null)}
             >
               <button
                 type="button"
-                onMouseEnter={() => setActive(i)}
-                onMouseLeave={() => setActive((cur) => (cur === i ? null : cur))}
                 onFocus={() => setActive(i)}
-                onBlur={() => setActive((cur) => (cur === i ? null : cur))}
-                onClick={() => setActive((cur) => (cur === i ? null : i))}
+                onBlur={() => setActive(null)}
                 aria-label={`Milestone ${i + 1}: ${m.title}`}
                 className="group relative grid h-14 w-14 place-items-center rounded-full bg-background outline-none transition-smooth"
               >
@@ -172,17 +175,19 @@ function JourneyPathway() {
                 <span
                   className={`absolute inset-0 rounded-full transition-smooth ${
                     isActive
-                      ? "scale-125 bg-primary/30 blur-md"
-                      : "scale-100 bg-primary/10 blur-sm"
+                      ? "scale-135 bg-primary/40 blur-md"
+                      : "scale-100 bg-primary/10 blur-sm group-hover:scale-125 group-hover:bg-primary/25"
                   }`}
                 />
                 {/* Halo */}
-                <span className="absolute -inset-2 rounded-full border border-primary/20" />
+                <span className={`absolute -inset-2 rounded-full border transition-all duration-300 ${
+                  isActive ? "border-primary/40 scale-110" : "border-primary/20"
+                }`} />
                 {/* Node */}
                 <span
                   className={`relative grid h-12 w-12 place-items-center rounded-full font-display text-sm font-bold text-primary-foreground shadow-elegant transition-smooth ${
                     isActive
-                      ? "scale-110 gradient-primary ring-4 ring-primary/30"
+                      ? "scale-110 gradient-primary ring-4 ring-primary/40"
                       : "gradient-primary group-hover:scale-110"
                   }`}
                 >
@@ -190,21 +195,21 @@ function JourneyPathway() {
                 </span>
               </button>
 
-              {/* Tooltip card */}
+              {/* Qualification detail card - ALWAYS visible */}
               <div
                 role="tooltip"
-                className={`pointer-events-none absolute left-1/2 z-20 w-64 -translate-x-1/2 transition-all duration-300 ${
-                  tooltipAbove ? "bottom-full mb-4" : "top-full mt-4"
-                } ${
-                  isActive
-                    ? "translate-y-0 opacity-100 scale-100"
-                    : tooltipAbove
-                      ? "translate-y-2 opacity-0 scale-95"
-                      : "-translate-y-2 opacity-0 scale-95"
+                className={`absolute left-1/2 z-20 w-64 -translate-x-1/2 transition-all duration-300 ${
+                  tooltipAbove ? "bottom-full mb-5" : "top-full mt-5"
                 }`}
               >
-                <div className="relative rounded-2xl border border-primary/30 bg-card/95 p-4 text-left shadow-elegant backdrop-blur-md">
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary/80">
+                <div className={`relative rounded-2xl border bg-card/95 p-4 text-left shadow-elegant backdrop-blur-md transition-all duration-300 ${
+                  isActive
+                    ? "border-primary/60 shadow-primary/15 shadow-xl -translate-y-1 scale-105"
+                    : "border-primary/15 shadow-sm hover:border-primary/30"
+                }`}>
+                  <div className={`text-[10px] font-semibold uppercase tracking-[0.22em] transition-colors duration-300 ${
+                    isActive ? "text-primary font-bold" : "text-primary/70"
+                  }`}>
                     Milestone {String(i + 1).padStart(2, "0")}
                   </div>
                   <h4 className="mt-1 font-display text-base font-semibold leading-snug text-foreground">
@@ -223,32 +228,20 @@ function JourneyPathway() {
         })}
       </div>
 
-      {/* Mobile fallback — vertical interactive pathway */}
+      {/* Mobile pathway - fully visible by default and beautifully stylized */}
       <div className="relative md:hidden">
         <span className="absolute left-7 top-2 bottom-2 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-primary/40" />
         <ul className="space-y-4">
           {milestones.map((m, i) => {
-            const isActive = active === i;
             return (
               <li key={i} className="relative pl-16">
-                <button
-                  type="button"
-                  onClick={() => setActive((cur) => (cur === i ? null : i))}
-                  aria-expanded={isActive}
-                  className="absolute left-0 top-0 grid h-14 w-14 place-items-center rounded-full bg-background"
-                >
+                <div className="absolute left-0 top-0 grid h-14 w-14 place-items-center rounded-full bg-background">
                   <span className="absolute inset-0 rounded-full bg-primary/15 blur-sm" />
                   <span className="relative grid h-12 w-12 place-items-center rounded-full gradient-primary font-display text-sm font-bold text-primary-foreground shadow-elegant ring-4 ring-background">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                </button>
-                <div
-                  className={`overflow-hidden rounded-2xl border bg-card/90 backdrop-blur transition-all duration-300 ${
-                    isActive
-                      ? "border-primary/40 shadow-elegant"
-                      : "border-border shadow-soft"
-                  }`}
-                >
+                </div>
+                <div className="overflow-hidden rounded-2xl border border-primary/20 bg-card/90 shadow-soft backdrop-blur">
                   <div className="p-4">
                     <div className="flex items-center justify-between gap-2">
                       <h4 className="font-display text-base font-semibold leading-snug text-foreground">
@@ -261,15 +254,9 @@ function JourneyPathway() {
                     <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-primary">
                       {m.institution}
                     </p>
-                    <div
-                      className={`grid transition-all duration-300 ${
-                        isActive ? "mt-2 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                      }`}
-                    >
-                      <p className="overflow-hidden text-sm leading-relaxed text-muted-foreground">
-                        {m.desc}
-                      </p>
-                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {m.desc}
+                    </p>
                   </div>
                 </div>
               </li>
