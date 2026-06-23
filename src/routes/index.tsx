@@ -97,7 +97,7 @@ function Home() {
 
           <div className="relative mx-auto lg:ml-auto lg:mr-0 max-w-sm sm:max-w-md lg:max-w-[440px] xl:max-w-[480px] w-full animate-fade-up" style={{ animationDelay: "0.15s" }}>
             <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-20 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[2rem] glass shadow-elegant aspect-[4/5]">
+            <div className="relative overflow-hidden rounded-[2rem] glass shadow-elegant aspect-[4/5] border border-[#c9a96a]/60 ring-1 ring-[#c9a96a]/20">
               <img src={doctorHero} alt={`${SITE.doctor} — Best Pediatrician in Rawalpindi`} width={1024} height={1280} className="h-full w-full object-cover object-top" />
             </div>
             <div className="absolute -left-4 bottom-8 hidden rounded-2xl glass p-4 shadow-soft sm:flex sm:items-center sm:gap-3 animate-float">
@@ -174,7 +174,7 @@ function Home() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative">
             <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-10 blur-2xl" />
-            <img src={careIllu} alt="Dr. Shahid Mahmud in his clinic" loading="lazy" width={1200} height={900} className="relative rounded-3xl shadow-elegant w-full aspect-[4/3] object-cover" />
+            <img src={careIllu} alt="Dr. Shahid Mahmud in his clinic" loading="lazy" width={1200} height={900} className="relative rounded-3xl shadow-elegant w-full aspect-[4/3] object-cover border border-[#c9a96a]/60 ring-1 ring-[#c9a96a]/20" />
           </div>
           <div>
             <SectionHeading eyebrow="Why Choose Dr. Shahid" title="Trusted by thousands of parents in Rawalpindi" subtitle="A military medical background combined with decades of pediatric expertise — care your family can rely on." />
