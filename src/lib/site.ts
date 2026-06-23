@@ -16,8 +16,10 @@ export const SITE = {
   hoursDays: "Monday – Saturday",
   hoursTime: "11:00 AM – 6:00 PM",
   experience: "35+ Years Experience",
-  facebook: "https://facebook.com",
-  instagram: "https://instagram.com",
+  facebook: "https://www.facebook.com/drshahidmahmudrwp",
+  instagram: "https://www.instagram.com/drshahidmahmud/",
+  tiktok: "https://www.tiktok.com/@drshahidmahmud",
+  youtube: "https://www.youtube.com/@drshahidmahmud",
 };
 
 export const NAV = [
