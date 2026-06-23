@@ -285,7 +285,7 @@ function About() {
           <div className="lg:col-span-2 order-2 lg:order-1 animate-fade-up">
             <div className="relative mx-auto max-w-md">
               <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-20 blur-2xl" />
-              <div className="relative overflow-hidden rounded-[2rem] glass shadow-elegant">
+              <div className="relative overflow-hidden rounded-[2rem] glass shadow-elegant border border-[#c9a96a]/60 ring-1 ring-[#c9a96a]/20">
                 <img src={doctorHero} alt={SITE.doctor} width={1024} height={1280} className="w-full aspect-[3/4] object-cover object-[center_15%]" />
               </div>
               <div className="absolute -left-4 bottom-8 hidden rounded-2xl glass p-4 shadow-soft sm:flex sm:items-center sm:gap-3 animate-float">
@@ -350,7 +350,7 @@ function About() {
         <div className="container mx-auto grid items-center gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-8">
           <div className="relative order-2 lg:order-1">
             <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-15 blur-3xl" />
-            <div className="relative overflow-hidden rounded-[2rem] shadow-elegant">
+            <div className="relative overflow-hidden rounded-[2rem] shadow-elegant border border-[#c9a96a]/60 ring-1 ring-[#c9a96a]/20">
               <img src={careImg} alt="Dr. Shahid Mahmud consulting with a patient" className="w-full aspect-[4/3] object-cover" />
             </div>
             <div className="absolute -bottom-6 -right-4 hidden rounded-2xl glass p-5 shadow-soft sm:block">
