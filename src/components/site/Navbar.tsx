@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
-import { NAV, SITE, waLink } from "@/lib/site";
+import { NAV, SITE, openPromoModal } from "@/lib/site";
 import logoAsset from "@/assets/logo-v2.png.asset.json";
 import { cn } from "@/lib/utils";
 
@@ -120,14 +120,13 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <a
-            href={waLink()}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={openPromoModal}
             className="inline-flex items-center gap-2 rounded-full gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth"
           >
-            <MessageCircle className="h-4 w-4" /> Book Consultation
-          </a>
+            <MessageCircle className="h-4 w-4" /> Online Consultation
+          </button>
         </div>
 
         <button
@@ -154,15 +153,16 @@ export function Navbar() {
                 {n.label}
               </Link>
             ))}
-            <a
-              href={waLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                openPromoModal();
+              }}
               className="mt-3 inline-flex items-center justify-center gap-2 rounded-full gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground"
             >
-              <MessageCircle className="h-4 w-4" /> Book Consultation
-            </a>
+              <MessageCircle className="h-4 w-4" /> Online Consultation
+            </button>
           </div>
         </div>
       )}
