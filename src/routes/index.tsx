@@ -23,9 +23,9 @@ const careIllu = "/image/Why-choose-Dr Shahid.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Best Pediatrician in Rawalpindi | Prof. Dr. Shahid Mahmud" },
+      { title: "Dr. Shahid's Child & Neuro Clinic | Prof. Brig (R) Dr. Shahid Mahmud" },
       { name: "description", content: "Prof. Brig (R) Dr. Shahid Mahmud — Pediatrician, Neonatologist & Child Neurologist at Nelson Medical Complex, Rawalpindi. Compassionate, evidence-based child care." },
-      { property: "og:title", content: "Best Pediatrician in Rawalpindi | Dr. Shahid Mahmud" },
+      { property: "og:title", content: "Dr. Shahid's Child & Neuro Clinic | Prof. Brig (R) Dr. Shahid Mahmud" },
       { property: "og:description", content: "Expert pediatric, neonatal and child neurology care for your child." },
       { property: "og:url", content: "/" },
     ],
