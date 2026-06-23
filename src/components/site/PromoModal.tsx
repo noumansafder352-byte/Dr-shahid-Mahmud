@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { X, MessageCircle, Stethoscope } from "lucide-react";
 import { SITE, waLink } from "@/lib/site";
-import doctor from "@/assets/dr-shahid-portrait.png";
+import doctorAsset from "@/assets/online-consultation-popup.jpg.asset.json";
+const doctor = doctorAsset.url;
 
 const STORAGE_KEY = "dsm_promo_seen_v1";
 
@@ -53,7 +54,7 @@ export function PromoModal() {
         <div className="grid sm:grid-cols-[1fr_1.2fr]">
           {/* Visual side */}
           <div
-            className="relative hidden sm:block"
+            className="relative hidden sm:block border-r border-[#c9a96a]/60"
             style={{
               background:
                 "linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%)",
@@ -63,7 +64,7 @@ export function PromoModal() {
             <img
               src={doctor}
               alt={SITE.doctor}
-              className="relative h-full w-full object-cover object-top mix-blend-luminosity opacity-95"
+              className="relative h-full w-full object-cover object-top"
             />
             <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/90 backdrop-blur p-3 shadow-soft">
               <div className="flex items-center gap-2">
