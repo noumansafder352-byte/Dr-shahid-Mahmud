@@ -1,8 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, MapPin, Clock, Mail, Send, ShieldCheck, Stethoscope, Sparkles, CalendarCheck, ArrowRight } from "lucide-react";
+import { Phone, MapPin, Clock, Mail, ShieldCheck, Sparkles, CalendarCheck, ArrowRight, MessageCircle } from "lucide-react";
 import { useState } from "react";
+import { z } from "zod";
 import { PageHero } from "@/components/site/PageHero";
 import { SITE, waLink, APPOINTMENT_MSG } from "@/lib/site";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2, "Please enter your full name").max(80, "Name too long").regex(/^[\p{L}\p{M}\s.'-]+$/u, "Name contains invalid characters"),
+  phone: z.string().trim().min(7, "Please enter a valid phone number").max(20, "Phone too long").regex(/^[0-9+()\-\s]+$/, "Phone contains invalid characters"),
+  email: z.string().trim().max(120, "Email too long").email("Please enter a valid email").optional().or(z.literal("")),
+  message: z.string().trim().min(5, "Message is too short").max(1000, "Message too long"),
+});
+
+const sanitize = (v: string) => v.replace(/[<>]/g, "").replace(/\s+/g, " ").trim();
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -18,7 +28,34 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Page() {
-  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "", website: "" });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Honeypot: bots fill hidden field
+    if (form.website) return;
+    const cleaned = {
+      name: sanitize(form.name),
+      phone: sanitize(form.phone),
+      email: sanitize(form.email),
+      message: sanitize(form.message),
+    };
+    const result = contactSchema.safeParse(cleaned);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      for (const issue of result.error.issues) {
+        const key = issue.path[0] as string;
+        if (!fieldErrors[key]) fieldErrors[key] = issue.message;
+      }
+      setErrors(fieldErrors);
+      return;
+    }
+    setErrors({});
+    const text = `From Website Contact Form\n\nName: ${cleaned.name}\nPhone: ${cleaned.phone}\nEmail: ${cleaned.email || "—"}\n\nMessage:\n${cleaned.message}`;
+    window.open(waLink(text), "_blank", "noopener,noreferrer");
+  };
+
   return (
     <>
       <PageHero
@@ -55,10 +92,10 @@ function Page() {
                   <Sparkles className="h-3.5 w-3.5" /> Reach the Clinic
                 </span>
                 <h2 className="mt-5 font-display text-2xl font-bold leading-tight sm:text-3xl">
-                  Compassionate care, one message away.
+                  Compassionate care, one click away.
                 </h2>
                 <p className="mt-3 text-sm text-primary-foreground/85 leading-relaxed">
-                  Our team responds promptly during clinic hours to help you book consultations and answer questions about your child's care.
+                  Our team is available during clinic hours to assist with consultation bookings and answer any questions about your child's care. We're here to provide caring, professional support.
                 </p>
 
                 <ul className="mt-8 space-y-5">
@@ -145,96 +182,100 @@ function Page() {
                   Share a few details and we'll respond within a few hours during clinic times.
                 </p>
 
-                {sent ? (
-                  <div className="mt-8 rounded-2xl gradient-soft p-8 text-center">
-                    <div className="mx-auto grid h-12 w-12 place-items-center rounded-full gradient-primary text-primary-foreground shadow-soft">
-                      <ShieldCheck className="h-6 w-6" />
-                    </div>
-                    <p className="mt-4 font-display text-lg font-semibold text-primary">
-                      Thank you — your message has been received.
+                <form
+                  onSubmit={handleSubmit}
+                  noValidate
+                  className="mt-7 grid gap-4 sm:grid-cols-2"
+                >
+                  {/* Honeypot — hidden from users */}
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={(e) => setForm({ ...form, website: e.target.value })}
+                    className="hidden"
+                    aria-hidden="true"
+                  />
+                  <label className="block sm:col-span-1">
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Your Name</span>
+                    <input
+                      required
+                      maxLength={80}
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      placeholder="Full name"
+                      className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm transition-smooth focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15"
+                    />
+                    {errors.name && <span className="mt-1 block text-xs text-destructive">{errors.name}</span>}
+                  </label>
+                  <label className="block sm:col-span-1">
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Phone Number</span>
+                    <input
+                      required
+                      type="tel"
+                      maxLength={20}
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      placeholder="e.g. 0300 1234567"
+                      className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm transition-smooth focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15"
+                    />
+                    {errors.phone && <span className="mt-1 block text-xs text-destructive">{errors.phone}</span>}
+                  </label>
+                  <label className="block sm:col-span-2">
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Email (optional)</span>
+                    <input
+                      type="email"
+                      maxLength={120}
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      placeholder="you@email.com"
+                      className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm transition-smooth focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15"
+                    />
+                    {errors.email && <span className="mt-1 block text-xs text-destructive">{errors.email}</span>}
+                  </label>
+                  <label className="block sm:col-span-2">
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Your Message</span>
+                    <textarea
+                      required
+                      rows={5}
+                      maxLength={1000}
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      placeholder="Tell us briefly about your child's concern..."
+                      className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm transition-smooth focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15"
+                    />
+                    {errors.message && <span className="mt-1 block text-xs text-destructive">{errors.message}</span>}
+                  </label>
+                  <div className="sm:col-span-2 flex items-center justify-between gap-4 pt-1">
+                    <p className="hidden text-xs text-muted-foreground sm:flex sm:items-center sm:gap-2">
+                      <ShieldCheck className="h-3.5 w-3.5 text-primary" /> Your details remain confidential.
                     </p>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      Our clinic team will get back to you shortly.
-                    </p>
+                    <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth">
+                      <MessageCircle className="h-4 w-4" /> Book Your Appointment
+                    </button>
                   </div>
-                ) : (
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      setSent(true);
-                    }}
-                    className="mt-7 grid gap-4 sm:grid-cols-2"
-                  >
-                    <label className="block sm:col-span-1">
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Your Name</span>
-                      <input required placeholder="Full name" className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm transition-smooth focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15" />
-                    </label>
-                    <label className="block sm:col-span-1">
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Phone Number</span>
-                      <input required type="tel" placeholder="e.g. 0300 1234567" className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm transition-smooth focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15" />
-                    </label>
-                    <label className="block sm:col-span-2">
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Email (optional)</span>
-                      <input type="email" placeholder="you@email.com" className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm transition-smooth focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15" />
-                    </label>
-                    <label className="block sm:col-span-2">
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Your Message</span>
-                      <textarea required rows={5} placeholder="Tell us briefly about your child's concern..." className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm transition-smooth focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15" />
-                    </label>
-                    <div className="sm:col-span-2 flex items-center justify-between gap-4 pt-1">
-                      <p className="hidden text-xs text-muted-foreground sm:flex sm:items-center sm:gap-2">
-                        <ShieldCheck className="h-3.5 w-3.5 text-primary" /> Your details remain confidential.
-                      </p>
-                      <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth">
-                        <Send className="h-4 w-4" /> Send Message
-                      </button>
-                    </div>
-                  </form>
-                )}
+                </form>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* MAP + VISIT */}
+      {/* MAP — full width */}
       <section className="container mx-auto px-4 pb-20 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div className="lg:col-span-2 overflow-hidden rounded-[2rem] border border-border shadow-elegant">
-            <iframe
-              src="https://www.google.com/maps?q=Nelson+Medical+Complex+Abid+Majeed+Road+Rawalpindi&output=embed"
-              width="100%"
-              height="440"
-              style={{ border: 0 }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Nelson Medical Complex, Rawalpindi"
-            />
-          </div>
-          <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-7 shadow-soft">
-            <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full opacity-20 blur-2xl" style={{ background: "var(--gradient-primary)" }} />
-            <div className="relative">
-              <div className="grid h-12 w-12 place-items-center rounded-2xl gradient-primary text-primary-foreground shadow-soft">
-                <Stethoscope className="h-5 w-5" />
-              </div>
-              <h3 className="mt-5 font-display text-xl font-bold">Visit Our Clinic</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Nelson Medical Complex, Abid Majeed Road, Rawalpindi.
-              </p>
-              <div className="mt-6 space-y-4 text-sm">
-                <div>
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">Clinic Hours</div>
-                  <p className="mt-1 font-display font-semibold text-foreground">{SITE.hoursDays}</p>
-                  <p className="text-muted-foreground">{SITE.hoursTime} • Sunday Closed</p>
-                </div>
-                <div>
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">Contact Numbers</div>
-                  <p className="mt-1 font-display font-semibold text-foreground">{SITE.phone}</p>
-                  <p className="font-display font-semibold text-foreground">{SITE.phoneSecondary}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="overflow-hidden rounded-[2rem] border border-border shadow-elegant">
+          <iframe
+            src="https://www.google.com/maps?q=Nelson+Medical+Complex+Abid+Majeed+Road+Rawalpindi&output=embed"
+            width="100%"
+            height="500"
+            style={{ border: 0, display: "block" }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Nelson Medical Complex, Rawalpindi"
+            className="w-full h-[420px] sm:h-[500px]"
+          />
         </div>
       </section>
     </>
