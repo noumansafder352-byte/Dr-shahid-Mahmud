@@ -98,7 +98,7 @@ function JourneyPathway() {
     "L 500 600 L 900 600";
 
   return (
-    <div className="relative mx-auto mt-24 w-full max-w-6xl pb-24">
+    <div className="relative mx-auto mt-16 w-full max-w-6xl pb-16">
       {/* Desktop / tablet interactive pathway */}
       <div className="relative hidden aspect-[1000/780] w-full md:block">
         <svg
