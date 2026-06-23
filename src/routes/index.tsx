@@ -11,7 +11,7 @@ const svcNewborn = PX(3259628);      // newborn with gloved hospital staff — n
 const svcNutrition = PX(7579831);    // doctor in consultation — growth/nutrition
 const svcAsthma = PX(4546135);       // children in medical masks — respiratory/asthma
 const svcDevelopment = PX(4484788);  // young child playing with toy — developmental care
-import { SITE, waLink } from "@/lib/site";
+import { SITE, waLink, APPOINTMENT_MSG } from "@/lib/site";
 import { Counter } from "@/components/site/Counter";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { CTABand } from "@/components/site/CTABand";
@@ -72,11 +72,8 @@ function Home() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href={waLink()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition-smooth">
-                <MessageCircle className="h-4 w-4" /> Book Consultation
-              </a>
-              <a href={`tel:${SITE.phoneIntl}`} className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-smooth">
-                <Phone className="h-4 w-4" /> Call Now
+              <a href={waLink(APPOINTMENT_MSG)} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition-smooth">
+                <MessageCircle className="h-4 w-4" /> Book Appointment
               </a>
             </div>
 
