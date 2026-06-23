@@ -59,9 +59,9 @@ function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Contact Us"
-        title="A direct line to expert pediatric care"
-        subtitle="Reach Prof. Brig (R) Dr. Shahid Mahmud's clinic for appointments, follow-ups, and trusted child healthcare guidance."
+        eyebrow="Get In Touch"
+        title="Trusted Pediatric Care, Just a Step Away"
+        subtitle="Connect with Prof. Brig (R) Dr. Shahid Mahmud's clinic for appointments, consultations, and expert advice on your child's health and well-being."
       />
 
       {/* PRIMARY CONTACT GRID */}
