@@ -20,7 +20,7 @@ const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const logo = logoAsset.url;
+const logo = "src/assets/dr-shahid-logo-horizontal.png";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
