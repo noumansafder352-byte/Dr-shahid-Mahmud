@@ -10,7 +10,7 @@ import {
 import doctorHeroAsset from "@/assets/about-consultant-portrait.jpg.asset.json";
 import aboutBg from "@/assets/about-bg.jpg";
 import aboutStoryAsset from "@/assets/about-story.jpg.asset.json";
-import { SITE, waLink } from "@/lib/site";
+import { SITE, waLink, APPOINTMENT_MSG } from "@/lib/site";
 
 const doctorHero = doctorHeroAsset.url;
 const careImg = aboutStoryAsset.url;
@@ -323,11 +323,8 @@ function About() {
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href={waLink()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth">
-                <MessageCircle className="h-4 w-4" /> Online Consultation
-              </a>
-              <a href={`tel:${SITE.phoneIntl}`} className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 backdrop-blur px-7 py-3.5 text-sm font-semibold text-foreground hover:border-primary/40 hover:-translate-y-0.5 transition-smooth">
-                <Phone className="h-4 w-4 text-primary" /> Contact Clinic
+              <a href={waLink(APPOINTMENT_MSG)} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth">
+                <MessageCircle className="h-4 w-4" /> Book Appointment
               </a>
             </div>
 
@@ -403,28 +400,6 @@ function About() {
           </div>
 
           <JourneyPathway />
-
-          <div className="relative mx-auto mt-16 max-w-4xl animate-fade-up">
-            <div className="absolute -inset-3 rounded-[2rem] gradient-primary opacity-20 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[2rem] border border-primary/30 bg-card/90 p-8 shadow-elegant backdrop-blur sm:p-10">
-              <div className="absolute -top-20 -right-20 h-56 w-56 rounded-full bg-primary/20 blur-3xl" />
-              <div className="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-teal/20 blur-3xl" />
-              <div className="relative flex flex-col items-center text-center">
-                <div className="grid h-14 w-14 place-items-center rounded-2xl gradient-primary text-primary-foreground shadow-elegant">
-                  <Award className="h-7 w-7" />
-                </div>
-                <h3 className="mt-5 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-                  <span className="text-gradient">35+ Years</span> of Excellence in Child Healthcare
-                </h3>
-                <p className="mt-3 text-sm font-semibold uppercase tracking-[0.22em] text-primary">
-                  Pediatrician • Neonatologist • Child Neurologist
-                </p>
-                <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-[17px]">
-                  Internationally trained specialist dedicated to helping children grow healthy, strong &amp; happy.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -611,11 +586,8 @@ function About() {
               neurology consultation, professional guidance is just a message away.
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <a href={waLink()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-primary shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth">
-                <MessageCircle className="h-4 w-4" /> WhatsApp Consultation <ArrowRight className="h-4 w-4" />
-              </a>
-              <a href={`tel:${SITE.phoneIntl}`} className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white border border-white/40 hover:bg-white/20 hover:-translate-y-0.5 transition-smooth">
-                <Phone className="h-4 w-4" /> Contact Clinic
+              <a href={waLink(APPOINTMENT_MSG)} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-primary shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth">
+                <MessageCircle className="h-4 w-4" /> Book Appointment <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </div>
