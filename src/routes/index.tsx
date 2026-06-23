@@ -135,7 +135,7 @@ function Home() {
       </section>
 
       {/* SERVICES */}
-      <section className="container mx-auto px-4 py-14 lg:px-8">
+      <section className="container mx-auto px-4 py-10 lg:px-8">
         <SectionHeading center eyebrow="Our Services" title="Complete pediatric care under one roof" subtitle="From newborn care to child neurology, we provide expert medical attention tailored to every stage of your child's growth." />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s, i) => (
@@ -167,7 +167,7 @@ function Home() {
       </section>
 
       {/* WHY CHOOSE */}
-      <section className="container mx-auto px-4 py-14 lg:px-8">
+      <section className="container mx-auto px-4 py-10 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative">
             <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-10 blur-2xl" />
@@ -192,7 +192,7 @@ function Home() {
       <GoogleReviews />
 
       {/* WELLNESS TIPS / TRUST STRIP */}
-      <section className="container mx-auto px-4 py-14 lg:px-8">
+      <section className="container mx-auto px-4 py-10 lg:px-8">
         <SectionHeading center eyebrow="Child Wellness" title="Caring for your child's complete well-being" />
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {[
@@ -217,7 +217,7 @@ function Home() {
       <CTABand />
 
       {/* MAP */}
-      <section className="container mx-auto px-4 pb-16 lg:px-8">
+      <section className="container mx-auto px-4 pb-12 lg:px-8">
         <SectionHeading center eyebrow="Visit Clinic" title="Find us at Nelson Medical Complex" subtitle="Abid Majeed Road, Rawalpindi, Pakistan — easy to reach, comfortable to visit." />
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2 overflow-hidden rounded-3xl border border-border shadow-elegant">
