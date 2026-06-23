@@ -85,8 +85,8 @@ export function PromoModal() {
                   Prof. Brig (R) Dr. Shahid Mahmud
                 </div>
                 <div className="h-px bg-white/10 w-full" />
-                <div className="text-[9.5px] font-semibold uppercase tracking-wider text-teal-300 leading-relaxed drop-shadow-sm">
-                  Pediatrician • Neonatologist • Child Neurologist
+                <div className="text-[9.5px] font-semibold uppercase tracking-wider text-white leading-relaxed drop-shadow-sm">
+                  Pediatrician • Neonatologist • <span className="inline-block whitespace-nowrap">Child Neurologist</span>
                 </div>
               </div>
             </div>
