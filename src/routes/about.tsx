@@ -98,7 +98,7 @@ function JourneyPathway() {
     "L 500 600 L 900 600";
 
   return (
-    <div className="relative mx-auto mt-24 w-full max-w-6xl pb-24">
+    <div className="relative mx-auto mt-16 w-full max-w-6xl pb-16">
       {/* Desktop / tablet interactive pathway */}
       <div className="relative hidden aspect-[1000/780] w-full md:block">
         <svg
@@ -281,7 +281,7 @@ function About() {
         <div className="absolute -top-20 -right-20 h-96 w-96 rounded-full bg-primary/15 blur-3xl animate-blob" />
         <div className="absolute -bottom-24 -left-10 h-80 w-80 rounded-full bg-teal/20 blur-3xl animate-blob" />
 
-        <div className="container relative mx-auto grid items-center gap-12 px-4 py-20 lg:grid-cols-5 lg:gap-12 lg:px-8 lg:py-28">
+        <div className="container relative mx-auto grid items-center gap-12 px-4 py-14 lg:grid-cols-5 lg:gap-12 lg:px-8 lg:py-20">
           <div className="lg:col-span-2 order-2 lg:order-1 animate-fade-up">
             <div className="relative mx-auto max-w-md">
               <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-20 blur-2xl" />
@@ -343,7 +343,7 @@ function About() {
       </section>
 
       {/* SECTION 2 — A LIFETIME DEDICATED TO CHILD HEALTHCARE */}
-      <section className="relative py-16">
+      <section className="relative py-12">
         <div className="container mx-auto grid items-center gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-8">
           <div className="relative order-2 lg:order-1">
             <div className="absolute -inset-6 rounded-[2rem] gradient-primary opacity-15 blur-3xl" />
@@ -383,7 +383,7 @@ function About() {
       </section>
 
       {/* SECTION 3 — AREAS OF SPECIALIZED EXPERTISE */}
-      <section data-journey-anchor className="relative overflow-hidden py-16">
+      <section data-journey-anchor className="relative overflow-hidden py-12">
         <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-teal/15 blur-3xl" />
         <div className="container relative mx-auto px-4 lg:px-8">
@@ -404,7 +404,7 @@ function About() {
       </section>
 
       {/* SECTION 3 — AREAS OF SPECIALIZED EXPERTISE */}
-      <section className="relative bg-secondary/40 py-16">
+      <section className="relative bg-secondary/40 py-12">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
@@ -436,7 +436,7 @@ function About() {
       </section>
 
       {/* SECTION 4 — CONDITIONS COMMONLY MANAGED */}
-      <section className="container mx-auto px-4 py-16 lg:px-8">
+      <section className="container mx-auto px-4 py-12 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
             <span className="h-px w-8 bg-primary/40" /> Conditions Treated
@@ -462,7 +462,7 @@ function About() {
       </section>
 
       {/* SECTION 5 — WHY PARENTS TRUST */}
-      <section className="relative overflow-hidden py-16 gradient-soft">
+      <section className="relative overflow-hidden py-12 gradient-soft">
         <div className="absolute -top-32 right-0 h-96 w-96 rounded-full bg-teal/15 blur-3xl" />
         <div className="container relative mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -493,7 +493,7 @@ function About() {
       </section>
 
       {/* SECTION 6 — CLINIC INFORMATION */}
-      <section className="container mx-auto px-4 py-16 lg:px-8">
+      <section className="container mx-auto px-4 py-12 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
             <span className="h-px w-8 bg-primary/40" /> Visit Us
@@ -562,7 +562,7 @@ function About() {
       </section>
 
       {/* SECTION 7 — FINAL CTA */}
-      <section className="container mx-auto px-4 pb-20 lg:px-8">
+      <section className="container mx-auto px-4 pb-14 lg:px-8">
         <div className="relative overflow-hidden rounded-[2rem] gradient-primary p-10 text-center shadow-elegant sm:p-16">
           <div className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-white/15 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-28 -left-16 h-80 w-80 rounded-full bg-white/10 blur-3xl" />

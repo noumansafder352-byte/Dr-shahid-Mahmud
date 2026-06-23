@@ -264,7 +264,7 @@ function Page() {
       </section>
 
       {/* MAP — full width */}
-      <section className="container mx-auto px-4 pb-20 lg:px-8">
+      <section className="container mx-auto px-4 pb-14 lg:px-8">
         <div className="overflow-hidden rounded-[2rem] border border-border shadow-elegant">
           <iframe
             src="https://www.google.com/maps?q=Nelson+Medical+Complex+Abid+Majeed+Road+Rawalpindi&output=embed"
