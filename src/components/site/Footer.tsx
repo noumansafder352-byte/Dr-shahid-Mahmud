@@ -18,7 +18,7 @@ const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const logo = logoAsset.url;
+const logo = "/image/dr-shahid-logo-horizontal.png";
 
 export function Footer() {
   return (

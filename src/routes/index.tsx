@@ -17,7 +17,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { CTABand } from "@/components/site/CTABand";
 import { GoogleReviews } from "@/components/site/GoogleReviews";
 
-const doctorHero = "/image/dr-shahid-logo-horizontal.png";
+const doctorHero = "/image/home-hero-section.jpg";
 const careIllu = "/image/Why-choose-Dr Shahid.jpg";
 
 export const Route = createFileRoute("/")({
