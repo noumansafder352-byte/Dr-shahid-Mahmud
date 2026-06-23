@@ -63,7 +63,7 @@ export function PromoModal() {
         <div className="grid sm:grid-cols-[1fr_1.2fr]">
           {/* Visual side */}
           <div
-            className="relative hidden sm:block border-r border-[#c9a96a]/60"
+            className="relative hidden sm:block border-r border-[#c9a96a]/60 overflow-hidden"
             style={{
               background:
                 "linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%)",
@@ -75,12 +75,17 @@ export function PromoModal() {
               alt={SITE.doctor}
               className="relative h-full w-full object-cover object-top"
             />
-            <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 backdrop-blur p-4 shadow-soft">
-              <div className="flex flex-col gap-1.5">
-                <div className="text-sm font-bold text-foreground leading-snug">
+            {/* Soft elegant gradient overlay to ensure premium feel and readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
+            
+            {/* Premium Glassmorphism Text Card */}
+            <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-4 shadow-elegant">
+              <div className="flex flex-col gap-2">
+                <div className="text-sm font-bold text-white tracking-wide leading-snug drop-shadow-sm">
                   Prof. Brig (R) Dr. Shahid Mahmud
                 </div>
-                <div className="text-[10px] font-semibold uppercase tracking-wider text-primary leading-relaxed">
+                <div className="h-px bg-white/10 w-full" />
+                <div className="text-[9.5px] font-semibold uppercase tracking-wider text-teal-300 leading-relaxed drop-shadow-sm">
                   Pediatrician • Neonatologist • Child Neurologist
                 </div>
               </div>
