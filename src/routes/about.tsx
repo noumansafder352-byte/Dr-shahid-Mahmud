@@ -12,7 +12,7 @@ import aboutBg from "@/assets/about-bg.jpg";
 import aboutStoryAsset from "@/assets/about-story.jpg.asset.json";
 import { SITE, waLink, APPOINTMENT_MSG } from "@/lib/site";
 
-const doctorHero = doctorHeroAsset.url;
+const doctorHero = "/image/about_1.jpg";
 const careImg = "/image/about-story2.jpg";
 
 export const Route = createFileRoute("/about")({
