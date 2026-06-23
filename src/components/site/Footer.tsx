@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, Clock, MessageCircle } from "lucide-react";
 import { NAV, SITE, waLink } from "@/lib/site";
-import logoAsset from "@/assets/logo-full.png.asset.json";
+import logoAsset from "@/assets/dr-shahids-logo.png.asset.json";
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
