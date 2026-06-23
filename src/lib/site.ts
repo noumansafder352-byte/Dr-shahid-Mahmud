@@ -11,7 +11,7 @@ export const SITE = {
   email: "drshahidmahmud@gmail.com",
   whatsapp: "923005197469",
   clinic: "Nelson Medical Complex",
-  address: "Nelson Medical Complex, Abid Majeed Road, Rawalpindi, Pakistan 46000",
+  address: "Nelson Medical Complex, Abid Majeed Road, Rawalpindi.",
   url: "https://drshahidmahmud.com",
   hours: "Mon – Sat: 11:00 AM – 6:00 PM",
   hoursDays: "Monday – Saturday",
