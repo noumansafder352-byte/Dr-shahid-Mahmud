@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { X, MessageCircle, Stethoscope } from "lucide-react";
-import { SITE, waLink } from "@/lib/site";
+import { SITE, waLink, ONLINE_CONSULT_MSG, PROMO_OPEN_EVENT } from "@/lib/site";
 import doctorAsset from "@/assets/online-consultation-popup.jpg.asset.json";
 const doctor = doctorAsset.url;
 
@@ -11,11 +11,20 @@ export function PromoModal() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    const handler = () => setOpen(true);
+    window.addEventListener(PROMO_OPEN_EVENT, handler);
+    let t: ReturnType<typeof setTimeout> | undefined;
     try {
-      if (sessionStorage.getItem(STORAGE_KEY)) return;
-    } catch {}
-    const t = setTimeout(() => setOpen(true), 2500);
-    return () => clearTimeout(t);
+      if (!sessionStorage.getItem(STORAGE_KEY)) {
+        t = setTimeout(() => setOpen(true), 2500);
+      }
+    } catch {
+      t = setTimeout(() => setOpen(true), 2500);
+    }
+    return () => {
+      window.removeEventListener(PROMO_OPEN_EVENT, handler);
+      if (t) clearTimeout(t);
+    };
   }, []);
 
   const close = () => {
@@ -101,14 +110,14 @@ export function PromoModal() {
             </ul>
 
             <a
-              href={waLink()}
+              href={waLink(ONLINE_CONSULT_MSG)}
               target="_blank"
               rel="noopener noreferrer"
               onClick={close}
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white shadow-soft hover:shadow-elegant transition-smooth"
               style={{ background: "var(--whatsapp)" }}
             >
-              <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+              <MessageCircle className="h-4 w-4" /> Book Online Consultation
             </a>
             <button
               onClick={close}

@@ -3,7 +3,7 @@ import { Star, ExternalLink, BadgeCheck } from "lucide-react";
 // To connect live Google reviews later, replace REVIEWS / OVERALL / TOTAL
 // with data fetched from a server function that calls the Google Places API.
 const OVERALL = 4.9;
-const TOTAL = 1248;
+const TOTAL = 477;
 const PLACE_URL = "https://www.google.com/search?q=Dr+Shahid+Mahmud+Nelson+Medical+Complex+Rawalpindi";
 
 type Review = {

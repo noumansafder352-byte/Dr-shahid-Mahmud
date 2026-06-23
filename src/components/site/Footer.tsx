@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { MapPin, Phone, Facebook, Instagram, Youtube, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, Clock, MessageCircle } from "lucide-react";
 import { NAV, SITE, waLink } from "@/lib/site";
 import logoAsset from "@/assets/logo-full.png.asset.json";
 
@@ -129,6 +129,14 @@ export function Footer() {
                     {SITE.phoneSecondary}
                   </a>
                 </div>
+              </li>
+              <li className="flex gap-3">
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <Mail className="h-4 w-4" />
+                </span>
+                <a href={`mailto:${SITE.email}`} className="break-all hover:text-primary transition-smooth">
+                  {SITE.email}
+                </a>
               </li>
               <li className="flex gap-3">
                 <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
