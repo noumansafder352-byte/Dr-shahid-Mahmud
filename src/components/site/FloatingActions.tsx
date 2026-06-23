@@ -1,4 +1,4 @@
-import { Phone } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
 import { waLink } from "@/lib/site";
 
 const WA_GRADIENT = "linear-gradient(135deg, oklch(0.78 0.18 150) 0%, oklch(0.58 0.18 155) 100%)";
@@ -14,36 +14,49 @@ function WhatsAppIcon({ className = "h-6 w-6" }: { className?: string }) {
 export function FloatingActions() {
   return (
     <>
-      {/* Floating WhatsApp — premium consultation button */}
+      {/* Floating premium healthcare CTA */}
       <a
         href={waLink()}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="WhatsApp consultation"
+        aria-label="Book appointment on WhatsApp"
         className="group fixed bottom-24 right-5 z-40 lg:bottom-7 lg:right-7"
       >
         <div className="relative">
-          {/* Outer pulse rings */}
-          <span className="pointer-events-none absolute inset-0 rounded-full opacity-40 animate-ping"
-            style={{ background: "oklch(0.7 0.2 150 / 0.55)" }} />
-          <span className="pointer-events-none absolute -inset-2 rounded-full opacity-60 blur-xl"
-            style={{ background: "oklch(0.7 0.2 150 / 0.45)" }} />
-
-          {/* Main button */}
+          {/* Soft outer glow */}
           <span
-            className="relative flex items-center gap-3 rounded-full pl-2 pr-5 py-2 text-white shadow-[0_12px_40px_-8px_rgba(16,128,80,0.55)] ring-1 ring-white/20 backdrop-blur-md transition-smooth group-hover:-translate-y-0.5 group-hover:shadow-[0_18px_50px_-8px_rgba(16,128,80,0.7)]"
+            className="pointer-events-none absolute -inset-3 rounded-full opacity-70 blur-2xl transition-opacity duration-500 group-hover:opacity-90"
+            style={{ background: "oklch(0.72 0.19 150 / 0.45)" }}
+          />
+          {/* Subtle pulse ring */}
+          <span
+            className="pointer-events-none absolute inset-0 rounded-full opacity-30 animate-ping"
+            style={{ background: "oklch(0.72 0.19 150 / 0.5)" }}
+          />
+
+          {/* Main pill button */}
+          <span
+            className="relative flex items-center gap-3 rounded-full pl-1.5 pr-5 py-1.5 text-white ring-1 ring-white/25 shadow-[0_18px_45px_-12px_rgba(16,128,80,0.6),inset_0_1px_0_rgba(255,255,255,0.25)] backdrop-blur-md transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_24px_55px_-12px_rgba(16,128,80,0.75),inset_0_1px_0_rgba(255,255,255,0.3)]"
             style={{ background: WA_GRADIENT }}
           >
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-white/15 ring-1 ring-white/40 shadow-inner">
+            {/* Icon medallion */}
+            <span className="relative grid h-12 w-12 place-items-center rounded-full bg-white text-emerald-600 shadow-[0_6px_18px_-6px_rgba(0,0,0,0.35)] ring-1 ring-emerald-700/10 transition-transform duration-300 group-hover:scale-105">
               <WhatsAppIcon className="h-6 w-6" />
+              {/* Live status dot */}
+              <span className="absolute -top-0.5 -right-0.5 flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80 animate-ping" />
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-white" />
+              </span>
             </span>
+
+            {/* Label */}
             <span className="hidden sm:flex flex-col leading-tight pr-1">
-              <span className="text-sm font-bold whitespace-nowrap">Book Appointment</span>
-            </span>
-            {/* Online dot */}
-            <span className="absolute -top-0.5 -right-0.5 sm:top-1 sm:right-1 flex h-3 w-3">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-80 animate-ping" />
-              <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-white" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-white/80">
+                Tap to chat
+              </span>
+              <span className="text-[15px] font-bold whitespace-nowrap drop-shadow-sm">
+                Book Appointment
+              </span>
             </span>
           </span>
         </div>
@@ -53,7 +66,7 @@ export function FloatingActions() {
       <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden">
         <div className="m-3 grid grid-cols-2 gap-2 rounded-2xl glass shadow-elegant p-2">
           <a href={waLink()} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 rounded-xl py-3 text-xs font-medium text-foreground/80 hover:bg-secondary transition-smooth">
-            <Phone className="h-4 w-4 text-primary" /> Book Appointment
+            <CalendarCheck className="h-4 w-4 text-primary" /> Book Appointment
           </a>
           <a href={waLink()} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 rounded-xl py-3 text-xs font-semibold text-primary-foreground gradient-primary">
             <WhatsAppIcon className="h-4 w-4" /> Book Consultation

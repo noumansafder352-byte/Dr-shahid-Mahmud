@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 import { NAV, SITE, openPromoModal } from "@/lib/site";
-import logoAsset from "@/assets/dr-shahids-logo.png.asset.json";
+import logoAsset from "@/assets/dr-shahid-logo-horizontal.png.asset.json";
 import { cn } from "@/lib/utils";
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -101,7 +101,9 @@ export function Navbar() {
           <img
             src={logo}
             alt="Dr Shahid's Child & Neuro Clinic"
-            className="h-12 w-auto sm:h-14 lg:h-16 object-contain"
+            className="h-11 w-auto sm:h-14 lg:h-16 object-contain"
+            loading="eager"
+            decoding="async"
           />
         </Link>
 

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, Clock, MessageCircle } from "lucide-react";
 import { NAV, SITE, waLink } from "@/lib/site";
-import logoAsset from "@/assets/dr-shahids-logo.png.asset.json";
+import logoAsset from "@/assets/dr-shahid-logo-horizontal.png.asset.json";
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -46,7 +46,9 @@ export function Footer() {
             <img
               src={logo}
               alt="Dr Shahid's Child & Neuro Clinic"
-              className="h-14 sm:h-16 w-auto object-contain"
+              className="h-14 sm:h-16 lg:h-20 w-auto object-contain"
+              loading="lazy"
+              decoding="async"
             />
             <p className="mt-5 text-[15px] leading-relaxed text-foreground/75 max-w-xs">
               Expert Pediatric, Neonatal and Child Neurology Care with over 35 years of experience.
