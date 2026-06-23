@@ -6,7 +6,7 @@ const PX = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-
 const svcCheckup = PX(7447002);      // girl checkup with stethoscope — fever/cough
 const svcPneumonia = PX(18830315);   // child being examined by doctor — pneumonia/chest
 const svcVaccine = PX(8413187);      // gloved hand with vaccine vial — vaccination
-const svcNeurology = PX(7108277);    // doctor with reflex hammer — neurology
+const svcNeurology = "/image/Childneurology.jpg";    // doctor with reflex hammer — neurology
 const svcNewborn = PX(3259628);      // newborn with gloved hospital staff — neonatal
 const svcNutrition = PX(7579831);    // doctor in consultation — growth/nutrition
 const svcAsthma = PX(4546135);       // children in medical masks — respiratory/asthma
