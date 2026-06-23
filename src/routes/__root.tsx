@@ -63,7 +63,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Best Pediatrician in Rawalpindi | Prof. Dr. Shahid Mahmud" },
+      { title: "Dr. Shahid's Child & Neuro Clinic | Prof. Brig (R) Dr. Shahid Mahmud" },
       { name: "description", content: "Prof. Brig (R) Dr. Shahid Mahmud — Top Pediatrician, Neonatologist & Child Neurologist in Rawalpindi. Expert care for newborns, infants & children. Book an appointment today." },
       { name: "keywords", content: "Best Pediatrician in Rawalpindi, Child Specialist Rawalpindi, Child Neurologist Rawalpindi, Neonatologist Rawalpindi, Pediatric Neurologist Pakistan" },
       { name: "author", content: SITE.doctor },
