@@ -7,15 +7,15 @@ const PX = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-
 const imgFeverCough  = PX(7447002);  // girl checkup with stethoscope
 const imgPneumonia   = PX(18830315); // child chest examination
 const imgVaccine     = PX(8413187);  // gloved hand with vaccine vial
-const imgAsthma      = "/image/AsthmaTreatment.jpg";  // children in medical masks
-const imgAllergy     = "/image/AlergyTreatment.jpg";  // doctor consulting (allergy assessment)
-const imgNutrition   = "/image/ChildGrowthandNuitrition.jpg";  // doctor consultation — growth & nutrition
-const imgSeizure     = "/image/FitsSeizureTreatment.jpg";  // doctor discussing care at bedside
-const imgStomach     = "/image/StomachandDigestiveTreatment.jpg";  // mother caring for child in bed (abdominal/sick)
+const imgAsthma      = "/image/AsthmaTreatment.jpg";  
+const imgAllergy     = "/image/AlergyTreatment.jpg";  
+const imgNutrition   = "/image/ChildGrowthandNuitrition.jpg";  
+const imgSeizure     = "/image/FitsSeizureTreatment.jpg";  
+const imgStomach     = "/image/StomachandDigestiveTreatment.jpg";  
 const imgNewborn     = PX(3259628);  // newborn with hospital gloved staff
 const imgDevelopment = PX(4484788);  // child playing with toy (developmental)
-const imgNeurology   = "/image/Childneurology.jpg";  // doctor with reflex hammer
-const imgNeonatal    = "/image/neonatalcare.jpg";  // mother with newborn (neonatal care)
+const imgNeurology   = "/image/Childneurology.jpg";  
+const imgNeonatal    = "/image/neonatalcare.jpg"; 
 
 export const Route = createFileRoute("/services")({
   head: () => ({
