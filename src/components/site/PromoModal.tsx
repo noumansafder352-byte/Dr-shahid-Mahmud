@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { X, MessageCircle, Stethoscope } from "lucide-react";
+import { X, MessageCircle } from "lucide-react";
 import { SITE, waLink, ONLINE_CONSULT_MSG, PROMO_OPEN_EVENT } from "@/lib/site";
 import doctorAsset from "@/assets/online-consultation-popup.jpg.asset.json";
 const doctor = doctorAsset.url;
@@ -75,16 +75,13 @@ export function PromoModal() {
               alt={SITE.doctor}
               className="relative h-full w-full object-cover object-top"
             />
-            <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 backdrop-blur p-3.5 shadow-soft">
-              <div className="flex items-center gap-3">
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full gradient-primary text-primary-foreground">
-                  <Stethoscope className="h-4 w-4" />
+            <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 backdrop-blur p-4 shadow-soft">
+              <div className="flex flex-col gap-1.5">
+                <div className="text-sm font-bold text-foreground leading-snug">
+                  Prof. Brig (R) Dr. Shahid Mahmud
                 </div>
-                <div className="leading-tight">
-                  <div className="text-[13px] font-bold text-foreground">Prof. Brig (R) Dr. Shahid Mahmud</div>
-                  <div className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
-                    Pediatrician • Neonatologist • Child Neurologist
-                  </div>
+                <div className="text-[10px] font-semibold uppercase tracking-wider text-primary leading-relaxed">
+                  Pediatrician • Neonatologist • Child Neurologist
                 </div>
               </div>
             </div>
