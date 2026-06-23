@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 import { NAV, SITE, openPromoModal } from "@/lib/site";
-import logoAsset from "@/assets/dr-shahid-logo-horizontal.png.asset.json";
+// import logoAsset from "@/assets/dr-shahid-logo-horizontal.png.asset.json";
 import { cn } from "@/lib/utils";
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -20,7 +20,7 @@ const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const logo = "src/assets/dr-shahid-logo-horizontal.png";
+const logo = "/image/dr-shahid-logo-horizontal.png";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
