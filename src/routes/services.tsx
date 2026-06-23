@@ -7,15 +7,15 @@ const PX = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-
 const imgFeverCough  = PX(7447002);  // girl checkup with stethoscope
 const imgPneumonia   = PX(18830315); // child chest examination
 const imgVaccine     = PX(8413187);  // gloved hand with vaccine vial
-const imgAsthma      = PX(4546135);  // children in medical masks
-const imgAllergy     = PX(7659690);  // doctor consulting (allergy assessment)
-const imgNutrition   = PX(7579831);  // doctor consultation — growth & nutrition
-const imgSeizure     = PX(6129040);  // doctor discussing care at bedside
-const imgStomach     = PX(7677588);  // mother caring for child in bed (abdominal/sick)
+const imgAsthma      = "/image/AsthmaTreatment.jpg";  // children in medical masks
+const imgAllergy     = "/image/AllergyTreatment.jpg";  // doctor consulting (allergy assessment)
+const imgNutrition   = "/image/ChildGrowthandNutrition.jpg";  // doctor consultation — growth & nutrition
+const imgSeizure     = "/image/SeizureTreatment.jpg";  // doctor discussing care at bedside
+const imgStomach     = "/image/StomachandDigestiveTreatment.jpg";  // mother caring for child in bed (abdominal/sick)
 const imgNewborn     = PX(3259628);  // newborn with hospital gloved staff
 const imgDevelopment = PX(4484788);  // child playing with toy (developmental)
-const imgNeurology   = PX(7108277);  // doctor with reflex hammer
-const imgNeonatal    = PX(3279203);  // mother with newborn (neonatal care)
+const imgNeurology   = "/image/Childneurology.jpg";  // doctor with reflex hammer
+const imgNeonatal    = "/image/neonatalcare.jpg";  // mother with newborn (neonatal care)
 
 export const Route = createFileRoute("/services")({
   head: () => ({
