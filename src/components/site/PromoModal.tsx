@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { X, MessageCircle, Stethoscope } from "lucide-react";
+import { X, MessageCircle } from "lucide-react";
 import { SITE, waLink, ONLINE_CONSULT_MSG, PROMO_OPEN_EVENT } from "@/lib/site";
 import doctorAsset from "@/assets/online-consultation-popup.jpg.asset.json";
 const doctor = doctorAsset.url;
