@@ -1,5 +1,5 @@
-import { Phone, MessageCircle, Stethoscope } from "lucide-react";
-import { SITE, waLink } from "@/lib/site";
+import { MessageCircle, Stethoscope } from "lucide-react";
+import { openPromoModal } from "@/lib/site";
 
 export function CTABand() {
   return (
@@ -28,20 +28,13 @@ export function CTABand() {
             Compassionate, expert pediatric care for your child, book an appointment or speak with us instantly.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={waLink()}
-              target="_blank"
-              rel="noreferrer"
+            <button
+              type="button"
+              onClick={openPromoModal}
               className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-primary shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth"
             >
-              <MessageCircle className="h-4 w-4" /> Book Consultation
-            </a>
-            <a
-              href={`tel:${SITE.phoneIntl}`}
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white border border-white/40 hover:bg-white/20 hover:-translate-y-0.5 transition-smooth"
-            >
-              <Phone className="h-4 w-4" /> Call {SITE.phone}
-            </a>
+              <MessageCircle className="h-4 w-4" /> Book Online Consultation
+            </button>
           </div>
         </div>
       </div>
