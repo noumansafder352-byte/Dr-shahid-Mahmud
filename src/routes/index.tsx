@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, MessageCircle, Award, Heart, Brain, ShieldCheck, Sparkles, Star, ArrowRight, CheckCircle2, MapPin, Activity } from "lucide-react";
-import doctorHeroAsset from "@/assets/home-hero-portrait.jpg.asset.json";
+// import doctorHeroAsset from "@/assets/home-hero-portrait.jpg.asset.json";
 import careIlluAsset from "@/assets/home-our-story.jpg.asset.json";
 const PX = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1200`;
 const svcCheckup = PX(7447002);      // girl checkup with stethoscope — fever/cough
@@ -17,8 +17,8 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { CTABand } from "@/components/site/CTABand";
 import { GoogleReviews } from "@/components/site/GoogleReviews";
 
-const doctorHero = doctorHeroAsset.url;
-const careIllu = careIlluAsset.url;
+const doctorHero = "/image/dr-shahid-logo-horizontal.png";
+const careIllu = "/image/Why-choose-Dr Shahid.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
