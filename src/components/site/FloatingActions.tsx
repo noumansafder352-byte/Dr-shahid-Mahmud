@@ -38,8 +38,7 @@ export function FloatingActions() {
               <WhatsAppIcon className="h-6 w-6" />
             </span>
             <span className="hidden sm:flex flex-col leading-tight pr-1">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/80">Consult Now</span>
-              <span className="text-sm font-bold whitespace-nowrap">Chat on WhatsApp</span>
+              <span className="text-sm font-bold whitespace-nowrap">Book Appointment</span>
             </span>
             {/* Online dot */}
             <span className="absolute -top-0.5 -right-0.5 sm:top-1 sm:right-1 flex h-3 w-3">
