@@ -1,7 +1,22 @@
 import { Link } from "@tanstack/react-router";
-import { MapPin, Phone, Facebook, Instagram, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Facebook, Instagram, Youtube, Clock, MessageCircle } from "lucide-react";
 import { NAV, SITE, waLink } from "@/lib/site";
 import logoAsset from "@/assets/logo-full.png.asset.json";
+
+const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 
 const logo = logoAsset.url;
 
@@ -54,6 +69,24 @@ export function Footer() {
                 className="grid h-10 w-10 place-items-center rounded-full border border-primary/20 bg-white/70 text-primary shadow-soft backdrop-blur hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 transition-smooth"
               >
                 <Instagram className="h-4 w-4" />
+              </a>
+              <a
+                href={SITE.tiktok}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="TikTok"
+                className="grid h-10 w-10 place-items-center rounded-full border border-primary/20 bg-white/70 text-primary shadow-soft backdrop-blur hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 transition-smooth"
+              >
+                <TiktokIcon className="h-4 w-4" />
+              </a>
+              <a
+                href={SITE.youtube}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="YouTube"
+                className="grid h-10 w-10 place-items-center rounded-full border border-primary/20 bg-white/70 text-primary shadow-soft backdrop-blur hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 transition-smooth"
+              >
+                <Youtube className="h-4 w-4" />
               </a>
             </div>
           </div>
