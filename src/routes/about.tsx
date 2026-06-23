@@ -322,12 +322,6 @@ function About() {
               compassionate, evidence-based treatment tailored to their unique needs.
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a href={waLink(APPOINTMENT_MSG)} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth">
-                <MessageCircle className="h-4 w-4" /> Book Appointment
-              </a>
-            </div>
-
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {trustHighlights.map((b, i) => (
                 <div key={i} className="group rounded-2xl border border-border bg-card/80 p-3.5 text-center shadow-soft backdrop-blur transition-smooth hover:-translate-y-0.5 hover:shadow-elegant">
@@ -337,6 +331,12 @@ function About() {
                   <p className="mt-2 text-[12px] font-semibold leading-tight text-foreground">{b.label}</p>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href={waLink(APPOINTMENT_MSG)} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-smooth">
+                <MessageCircle className="h-4 w-4" /> Book Appointment
+              </a>
             </div>
           </div>
         </div>
@@ -526,8 +526,8 @@ function About() {
                 <div className="flex-1">
                   <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Contact Numbers</div>
                   <div className="mt-2 space-y-1.5">
-                    <a href={`tel:${SITE.phoneIntl}`} className="block text-base font-semibold text-foreground hover:text-primary transition-smooth">{SITE.phone}</a>
-                    <a href={`tel:${SITE.phoneSecondaryIntl}`} className="block text-base font-semibold text-foreground hover:text-primary transition-smooth">{SITE.phoneSecondary}</a>
+                    <p className="block text-base font-semibold text-foreground">{SITE.phone}</p>
+                    <p className="block text-base font-semibold text-foreground">{SITE.phoneSecondary}</p>
                   </div>
                 </div>
               </div>

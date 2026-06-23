@@ -241,9 +241,9 @@ function Home() {
                 <Phone className="h-3.5 w-3.5 text-primary" /> Call the Clinic
               </div>
               <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-display text-base font-semibold text-foreground">
-                <a href={`tel:${SITE.phoneIntl}`} className="hover:text-primary transition-smooth">{SITE.phone}</a>
+                <span>{SITE.phone}</span>
                 <span className="text-muted-foreground/60">|</span>
-                <a href={`tel:${SITE.phoneSecondaryIntl}`} className="hover:text-primary transition-smooth">{SITE.phoneSecondary}</a>
+                <span>{SITE.phoneSecondary}</span>
               </div>
             </div>
 

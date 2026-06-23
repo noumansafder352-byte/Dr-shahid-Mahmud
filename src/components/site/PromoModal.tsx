@@ -75,14 +75,16 @@ export function PromoModal() {
               alt={SITE.doctor}
               className="relative h-full w-full object-cover object-top"
             />
-            <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/90 backdrop-blur p-3 shadow-soft">
-              <div className="flex items-center gap-2">
-                <div className="grid h-9 w-9 place-items-center rounded-full gradient-primary text-primary-foreground">
+            <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 backdrop-blur p-3.5 shadow-soft">
+              <div className="flex items-center gap-3">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full gradient-primary text-primary-foreground">
                   <Stethoscope className="h-4 w-4" />
                 </div>
                 <div className="leading-tight">
-                  <div className="text-xs text-muted-foreground">Consult</div>
-                  <div className="text-sm font-semibold">{SITE.short}</div>
+                  <div className="text-[13px] font-bold text-foreground">Prof. Brig (R) Dr. Shahid Mahmud</div>
+                  <div className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                    Pediatrician • Neonatologist • Child Neurologist
+                  </div>
                 </div>
               </div>
             </div>
@@ -94,7 +96,7 @@ export function PromoModal() {
               <MessageCircle className="h-3 w-3" /> Online Consultation
             </span>
             <h3 id="promo-title" className="mt-3 font-display text-2xl font-bold sm:text-3xl">
-              Need <span className="text-gradient">Online Child Consultation?</span>
+              Need <span className="text-gradient">Online Consultation?</span>
             </h3>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
               Consult {SITE.doctor} directly on WhatsApp for expert pediatric & child neurology guidance — anytime, anywhere.

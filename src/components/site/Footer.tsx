@@ -122,12 +122,8 @@ export function Footer() {
                   <Phone className="h-4 w-4" />
                 </span>
                 <div className="flex flex-col">
-                  <a href={`tel:${SITE.phoneIntl}`} className="hover:text-primary transition-smooth">
-                    {SITE.phone}
-                  </a>
-                  <a href={`tel:${SITE.phoneSecondaryIntl}`} className="hover:text-primary transition-smooth">
-                    {SITE.phoneSecondary}
-                  </a>
+                  <span>{SITE.phone}</span>
+                  <span>{SITE.phoneSecondary}</span>
                 </div>
               </li>
               <li className="flex gap-3">
@@ -143,9 +139,9 @@ export function Footer() {
                   <MapPin className="h-4 w-4" />
                 </span>
                 <span className="leading-relaxed">
-                  Nelson Medical Complex<br />
-                  Abid Majeed Road<br />
-                  Rawalpindi
+                  Nelson Medical Complex,<br />
+                  Abid Majeed Road,<br />
+                  Rawalpindi.
                 </span>
               </li>
             </ul>
@@ -159,10 +155,10 @@ export function Footer() {
             </a>
           </div>
 
-          {/* Working Hours */}
+          {/* Clinic Hours */}
           <div>
             <h4 className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-foreground mb-5">
-              Working Hours
+              Clinic Hours
             </h4>
             <div className="rounded-2xl border border-primary/15 bg-white/70 p-5 backdrop-blur-md shadow-soft">
               <div className="flex items-center gap-3">
