@@ -1,9 +1,24 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, MessageCircle, MapPin, Facebook, Instagram } from "lucide-react";
+import { Menu, X, MessageCircle, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 import { NAV, SITE, waLink } from "@/lib/site";
 import logoAsset from "@/assets/logo-v2.png.asset.json";
 import { cn } from "@/lib/utils";
+
+const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 
 const logo = logoAsset.url;
 
@@ -57,6 +72,24 @@ export function Navbar() {
               className="grid h-7 w-7 place-items-center rounded-full border border-border bg-background/60 text-foreground/70 hover:border-primary hover:text-primary hover:-translate-y-0.5 transition-smooth"
             >
               <Instagram className="h-3.5 w-3.5" />
+            </a>
+            <a
+              href={SITE.tiktok}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="TikTok"
+              className="grid h-7 w-7 place-items-center rounded-full border border-border bg-background/60 text-foreground/70 hover:border-primary hover:text-primary hover:-translate-y-0.5 transition-smooth"
+            >
+              <TiktokIcon className="h-3.5 w-3.5" />
+            </a>
+            <a
+              href={SITE.youtube}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="YouTube"
+              className="grid h-7 w-7 place-items-center rounded-full border border-border bg-background/60 text-foreground/70 hover:border-primary hover:text-primary hover:-translate-y-0.5 transition-smooth"
+            >
+              <Youtube className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>
